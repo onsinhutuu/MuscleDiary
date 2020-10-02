@@ -10,8 +10,23 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
-@import "bootstrap-sprockets";
 @import "bootstrap";
+@import " font-awesome ";
+
+main {
+  background-image: url(muscle.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  z-index: 0;
+}
+
+.scroll-fade{opacity: 0; transition: all 2s/*処理にかかる時間*/;}
+.scroll-up{opacity: 0; transform: translateY(100px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
+.scroll-up.done, .scroll-fade.done{opacity : 1; transform : translate(0, 0);}
+.load-fade {opacity : 0; transition : all 2s/*処理にかかる時間*/;}
+.load-up{opacity: 0; transform: translateY(100px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
+.load-up.done, .load-fade.done{opacity : 1; transform : translate(0, 0);}

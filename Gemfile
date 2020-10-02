@@ -65,11 +65,12 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 gem 'kaminari','~> 1.2.1'
 
 gem 'pry-rails'
 gem 'rails-i18n', '~> 5.1'
+gem 'font-awesome-rails'
+gem 'font-awesome-sass'

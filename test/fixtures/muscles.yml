@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  memo: MyText
+  genre: MyString
+  set_count: MyString
+  weight: MyString
+  rep: MyString
+
+two:
+  user_id: 1
+  memo: MyText
+  genre: MyString
+  set_count: MyString
+  weight: MyString
+  rep: MyString

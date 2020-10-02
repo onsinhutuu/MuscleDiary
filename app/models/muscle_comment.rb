@@ -1,0 +1,2 @@
+class MuscleComment < ApplicationRecord
+end

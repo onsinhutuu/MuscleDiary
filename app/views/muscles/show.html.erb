@@ -1,2 +1,39 @@
-<h1>Muscles#show</h1>
-<p>Find me in app/views/muscles/show.html.erb</p>
+<table class="table">
+        <thead>
+          <tr>
+          <th></th>
+          <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <td>
+          <%= attachment_image_tag @user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
+          </td>
+          <td>
+          <%= link_to @user.name, user_path(@user.id) %>
+          </td>
+          <td>
+          <%= @muscle.genre %>
+          </td>
+          <td>
+          <%= @muscle.weight %>
+          </td>
+          <td>
+          <%= @muscle.rep%>
+          </td>
+          <td>
+          <%= @muscle.set_count%>
+          </td>
+          <td>
+          <%= @muscle.memo %>
+          </td>
+          <td>
+            <% if @muscle.user == current_user %>
+            <%= link_to "Edit", edit_muscle_path(@muscle) %>
+            <%= link_to "Destroy",muscle_path(@muscle), method: :delete, "data-confirm" => "本当に消しますか？" %>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">

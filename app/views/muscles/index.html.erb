@@ -1,2 +1,42 @@
-<h1>Muscles#index</h1>
-<p>Find me in app/views/muscles/index.html.erb</p>
+<h1>ALL WORKOUT</h1>
+<table class="table">
+<thead>
+<tr>
+<th></th>
+<th>名前</th>
+</tr>
+</thead>
+
+<tbody>
+<% @muscles.each do |muscle| %>
+<tr>
+<td>
+<%= link_to user_path(muscle.user_id) do %>
+<%= attachment_image_tag muscle.user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
+<% end %>
+</td>
+<td>
+<%= link_to muscle.user.name, muscle_path(muscle.id) %>
+</td>
+<td>
+<%= muscle.genre %>
+</td>
+<td>
+<%= muscle.weight %>
+</td>
+<td>
+<%= muscle.rep%>
+</td>
+<td>
+<%= muscle.set_count %>
+</td>
+<td>
+<%= muscle.memo %>
+</td>
+<td>
+<%= link_to "show", muscle_path(muscle.id) %>
+</td>
+</tr>
+<% end %>
+</tbody>
+</table>

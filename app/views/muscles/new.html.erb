@@ -1,2 +1,23 @@
-<h1>Muscles#new</h1>
-<p>Find me in app/views/muscles/new.html.erb</p>
+<%= form_with model: @muscle, local: true do |f| %>
+	<div class="field">
+	<%= f.label :genre, "種目" %>
+	<%= f.text_area :genre, placeholder: "背中　懸垂"  %>
+	</div>
+	<div class="field">
+    <%= f.label :weight, "重量" %>
+    <%= f.text_field :weight%>kg
+  	</div>
+  	<div class="field">
+    <%= f.label :rep, "回数" %>
+    <%= f.text_field :rep%>rep
+  	</div>
+  	<div class="field">
+    <%= f.label :set_count, "セット数" %>
+    <%= f.text_field :set_count%>セット
+  	</div>
+  	<div class="field">
+    <%= f.label :memo, "メモ" %>
+    <%= f.text_field :memo%>
+  	</div>
+	<%= f.submit "投稿", class: "btn btn-primary" %>
+<% end %>
