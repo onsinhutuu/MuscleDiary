@@ -1,24 +1,29 @@
-# README
+# <MUSCLE DIARY>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+トレーニングの種目、回数、その日の体調や意気込みなどを日記のように記録し、公開できる
 
-Things you may want to cover:
+### サイトテーマ
+日々のトレーニング内容（主にウエイトトレーニング）を記録でき、公開できるSNSサイト
 
-* Ruby version
+### テーマを選んだ理由
+自分の趣味が筋トレであり、自分が本当に成長しているのか数値を記録したいが良いサイト、アプリがない為自分で作ろうと思ったから
 
-* System dependencies
+### ターゲットユーザ
+筋トレをしていて、自分の成長を記録したい人
 
-* Configuration
+### 主な利用シーン
+筋トレ後、筋トレセット間休憩中
 
-* Database creation
+## 設計書
 
-* Database initialization
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1QBqRCZ2zcEQLmxV8ke_tsnEsL8e4jqQcAbd8-Y33EUw/edit?usp=sharing
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- 仮想環境：Vagrant,VirtualBox
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
