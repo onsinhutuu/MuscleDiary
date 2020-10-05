@@ -18,6 +18,10 @@ a {
 color:#000;
 text-decoration:underline;
 }
+.btn {
+	padding-top: 10px;
+	margin-left: 10px;
+}
 .notice {
 	padding-top: 20px;
 }
@@ -67,6 +71,7 @@ input[type="email"] {
 	font-size: 20px;
 
 }
+/*topページ*/
 #top {
   background: url(muscle.jpg);
   background-position: center;
@@ -127,9 +132,16 @@ input[type="email"] {
 .field {
 	padding-top: 20px;
 }
+/*topページ終わり*/
+
+/*編集ページのボタン配置*/
+.form-group-btn {
+	display: flex;
+	margin-left: 500px;
+}
 .scroll-fade{opacity: 0; transition: all 2s/*処理にかかる時間*/;}
-.scroll-up{opacity: 0; transform: translateY(100px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
+.scroll-up{opacity: 0; transform: translateY(300px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
 .scroll-up.done, .scroll-fade.done{opacity : 1; transform : translate(0, 0);}
 .load-fade {opacity : 0; transition : all 2s/*処理にかかる時間*/;}
-.load-up{opacity: 0; transform: translateY(100px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
+.load-up{opacity: 0; transform: translateY(300px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
 .load-up.done, .load-fade.done{opacity : 1; transform : translate(0, 0);}

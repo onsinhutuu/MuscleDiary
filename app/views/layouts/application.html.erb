@@ -14,7 +14,7 @@
   <header class="head">
       <nav class="navbar">
         <div class="wrap load-up">
-         <h1>MuscleDiary</h1>
+        <h1><%= link_to 'MuscleDiary', root_path %></h1>
         </div>
       </nav>
       <ul class="nav">
@@ -23,10 +23,11 @@
                     <li class="nav-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
                 <% elsif user_signed_in? %>
                     <li class="nav-item"><%= link_to 'ALL WORKOUT', muscles_path %></li>
-                     <li class="nav-item"><%= link_to 'FRIEND WORKOUT', new_muscle_path %></li>
+                    <li class="nav-item"><%= link_to 'FRIEND WORKOUT', new_muscle_path %></li>
                     <li class="nav-item"><%= link_to 'TODAY WORKOUT', new_muscle_path %></li>
+                    <li class="nav-item"><%= link_to 'MY PAGE', user_path(current_user) %></li>
                     <li class="nav-item"><%= link_to 'CONTACT', new_contact_path %></li>
-                    <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path %></li>
+                    <li class="nav-item"><%= link_to 'LOG OUT', destroy_user_session_path %></li>
 
 
                 <% else %>

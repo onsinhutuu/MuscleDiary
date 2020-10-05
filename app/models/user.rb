@@ -6,5 +6,7 @@ class User < ApplicationRecord
   attachment :image
   has_many :muscles
   has_many :parts
-
+	def active_for_authentication?
+	  super && (self.is_deleted == false)
+	end
 end
