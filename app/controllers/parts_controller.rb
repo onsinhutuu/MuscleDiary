@@ -1,13 +1,14 @@
 class PartsController < ApplicationController
   def new
   	@part = Part.new
+    @parts = current_user.parts
   end
 
   def create
   	@part = Part.new(part_params)
     @part.user_id = current_user.id
     @part.save
-    redirect_to user_path(@part)
+    redirect_to request.referer
   end
 
   private

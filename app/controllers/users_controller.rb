@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
+    @graph = Muscle.where(user_id: current_user.id)
   end
 
   def follows
@@ -30,13 +31,13 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    redirect_to root_path, info: 'ありがとうございました'
+    redirect_to root_path, flash[:notice] = 'ありがとうございました'
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :is_deleted)
+    params.require(:user).permit(:name, :email, :is_deleted, :image)
   end
 
 end

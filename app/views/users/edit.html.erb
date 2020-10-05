@@ -7,7 +7,7 @@
     	<%= form_for (@user) do |f| %>
 	    	<div class='form-group row'>
 	      		<div class='col-lg-4'>
-					<h5><%= f.label :名前 %></h5>
+					<h5><%= f.label :name, "名前" %></h5>
 				</div>
 				<div class='col-lg-8'>
 					<span style='display: inline-block;'>
@@ -17,17 +17,43 @@
 			</div>
 			<div class='form-group row'>
 		      <div class='col-lg-4'>
-		        <h5><%= f.label :Eメール %></h5>
+		        <h5><%= f.label :email, "Eメール" %></h5>
 		      </div>
 		      <div class='col-lg-8'>
 		        <%= f.text_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
 		      </div>
 		    </div>
+		    <div class='form-group row'>
+		      <div class='col-lg-4'>
+		       	<div class="user-image">
+					<%= attachment_image_tag @user, :image, fallback: "no_image.jpg", id: "img_prev", style: "height: 200px; width:200px;" %><br>
+			    </div>
+		      </div>
+		      <div class='col-lg-8'>
+		       <%= f.attachment_field :image %>
+		      </div>
+		    </div>
 		    <div class="form-group-btn">
-				<%= f.submit '編集内容を保存する', class:'btn btn-danger' %>
+				<%= f.submit '編集内容を保存する', class:'btn btn-primary' %>
 				<div class="col-lg-4">
 		        	<%= link_to '退会する', unsubscribe_user_path(@user), class:'btn btn-danger'  %>
 		        </div>
 		    </div>
 		<% end %>
 </div>
+
+<script>
+$(function(){
+    // inputのidから情報の取得
+    $('#user_image').on('change', function (e) {
+// ここから既存の画像のurlの取得
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $(".image").attr('src', e.target.result);
+    }
+// ここまで
+    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+});
+});
+
+</script>

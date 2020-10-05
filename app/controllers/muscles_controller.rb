@@ -13,6 +13,22 @@ class MusclesController < ApplicationController
   end
 
   def edit
+     @muscle = Muscle.find(params[:id])
+     @user = current_user
+     if @muscle.user == current_user
+     else
+      redirect_to muscles_path
+     end
+  end
+
+  def update
+    @muscle = Muscle.find(params[:id])
+    if @muscle.update(muscle_params)
+      flash[:notice] = "投稿を編集しました"
+      redirect_to muscle_path(@muscle)
+    else
+      render :edit
+    end
   end
 
   def new
@@ -30,7 +46,7 @@ class MusclesController < ApplicationController
   def destroy
     @muscle = Muscle.find(params[:id])
     @muscle.destroy
-    redirect_to muscle_path
+    redirect_to muscles_path
   end
 
   private

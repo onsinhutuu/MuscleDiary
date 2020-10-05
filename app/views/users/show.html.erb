@@ -1,9 +1,10 @@
 <div class="container">
 	<h2>マイページ</h2>
+	<div class="row">
+	<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100', class: "img-circle pull-left profile-thumb" %>
+	</div>
 		<div class="row">
 			<span><strong>登録情報</strong></span>
-		    <%= link_to "編集する", edit_user_path(@user), class: "btn btn-success" %>
-		    <%= link_to "パスワードを変更する", edit_user_registration_path(@user), class: "btn btn-primary" %>
 		    <table class="table  table-bordered">
 		    		<tr>
 		    			<th>名前</th>
@@ -14,6 +15,11 @@
 		    			<td><%= @user.email %></td>
 		    		</tr>
 		    </table>
+		    <%= link_to "編集する", edit_user_path(@user), class: "btn btn-success" %>
+		    <%= link_to "パスワードを変更する", edit_user_registration_path(@user), class: "btn btn-primary" %>
+		    <%= link_to "部位を追加する", new_part_path, class: "btn btn-light" %>
+		</div>
+		<div class="row">
+			<%= pie_chart @graph.group(:genre).count %>
 		</div>
 </div>
-

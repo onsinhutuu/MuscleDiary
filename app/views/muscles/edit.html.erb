@@ -1,2 +1,57 @@
-<h1>Muscles#edit</h1>
-<p>Find me in app/views/muscles/edit.html.erb</p>
+<h1>投稿編集</h1>
+<div class="container">
+	<%= render "users/shared/error_messages", resource: @muscle %>
+	<%= form_with model: @muscle, local: true do |f| %>
+	<div class="row">
+		<div class="col-md-4 offset-md-3">
+			<div class="field">
+				<%= f.label :genre, "部位" %>
+				<%= f.collection_select :part_id, @user.parts, :id, :name, :include_blank => "選択してください" %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 offset-md-3">
+			<div class="field">
+				<%= f.label :genre, "種目" %>
+				<%= f.text_field :genre, placeholder: "懸垂"  %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 offset-md-3">
+			<div class="field">
+				<%= f.label :weight, "重量" %>
+				<%= f.text_field :weight, placeholder: "100kg"%>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 offset-md-3">
+			<div class="field">
+			    <%= f.label :rep, "回数" %>
+			    <%= f.text_field :rep, placeholder: "10rep"%>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 offset-md-3">
+			<div class="field">
+			    <%= f.label :set_count, "セット数" %>
+			    <%= f.text_field :set_count, placeholder: "３セット"%>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 offset-md-3">
+			<div class="field">
+			    <%= f.label :memo, "メモ" %>
+			    <%= f.text_field :memo%>
+			</div>
+		</div>
+		<div class="col-md-4 offset-md-7">
+			<%= f.submit "編集内容を保存する", class: "btn btn-primary w-50" %>
+		</div>
+	</div>
+	<% end %>
+</div>

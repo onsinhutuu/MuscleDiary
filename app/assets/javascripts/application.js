@@ -17,6 +17,8 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+//= require chartkick
+//= require Chart.bundle
 
 $(function(){
     load_effect();
