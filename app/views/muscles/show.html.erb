@@ -14,6 +14,9 @@
           <%= link_to @user.name, user_path(@user.id) %>
           </td>
           <td>
+            <%= @muscle.part.name %>
+          </td>
+          <td>
           <%= @muscle.genre %>
           </td>
           <td>
@@ -32,6 +35,7 @@
             <% if @muscle.user == current_user %>
             <%= link_to "Edit", edit_muscle_path(@muscle) %>
             <%= link_to "Destroy",muscle_path(@muscle), method: :delete, "data-confirm" => "本当に消しますか？" %>
+            <%= link_to "ALL WORKOUT", muscles_path %>
             <% end %>
           </tr>
         </tbody>

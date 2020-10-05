@@ -1,0 +1,7 @@
+<%= form_with model: @part, local: true do |f| %>
+	<div class="field">
+		<%= f.label :name, "部位" %>
+		<%= f.text_area :name, placeholder: "背中"  %>
+	</div>
+<%= f.submit "投稿", class: "btn btn-primary" %>
+<% end %>

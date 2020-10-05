@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 		resources :contacts, only: [:index, :edit, :update, :destroy]
 	end
 		resources :contacts, only: [:new, :create]
+		resources :parts, only: [:new, :create]
 		resources :muscles do
 			resources :muscle_comments, only: [:create, :destroy]
 			resource :favorites, only: [:create, :destroy]

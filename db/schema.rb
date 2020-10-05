@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_043808) do
+ActiveRecord::Schema.define(version: 2020_10_03_120330) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2020_10_02_043808) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer "user_id"
-    t.text "title"
-    t.text "body"
-    t.text "reply"
+    t.text "title", null: false
+    t.text "body", null: false
+    t.text "reply", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,20 +43,28 @@ ActiveRecord::Schema.define(version: 2020_10_02_043808) do
   create_table "muscle_comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "muscle_id"
-    t.text "comment"
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "muscles", force: :cascade do |t|
     t.integer "user_id"
-    t.text "memo"
-    t.string "genre"
-    t.string "set_count"
-    t.string "weight"
-    t.string "rep"
+    t.text "memo", null: false
+    t.string "genre", null: false
+    t.string "set_count", null: false
+    t.string "weight", null: false
+    t.string "rep", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "part_id"
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -72,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_10_02_043808) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "name", null: false
     t.string "image_id"
     t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false

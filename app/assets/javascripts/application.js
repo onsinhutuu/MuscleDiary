@@ -24,7 +24,7 @@ $(function(){
         scroll_effect();
     });
 });
- 
+
 //ふわっとロード
 function load_effect(){
     var tt = $(window).scrollTop();
@@ -42,7 +42,6 @@ function load_effect(){
         }
     });
 }
- 
 //ふわっとスクロール
 function scroll_effect(){
     var tt = $(window).scrollTop();

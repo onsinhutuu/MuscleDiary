@@ -17,13 +17,14 @@ class MusclesController < ApplicationController
 
   def new
     @muscle = Muscle.new
+    @user = current_user
   end
 
   def create
     @muscle = Muscle.new(muscle_params)
     @muscle.user_id = current_user.id
     @muscle.save
-    redirect_to muscle_path(@muscle)
+    redirect_to muscle_path(@muscle.id)
   end
 
   def destroy
@@ -34,6 +35,6 @@ class MusclesController < ApplicationController
 
   private
     def muscle_params
-        params.require(:muscle).permit(:memo, :genre, :set_count, :weight, :rep)
+        params.require(:muscle).permit(:memo, :genre, :set_count, :weight, :rep, :part_id)
     end
 end

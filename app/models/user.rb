@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   attachment :image
   has_many :muscles
+  has_many :parts
 
 end

@@ -11,37 +11,34 @@
   </head>
 
   <body>
-     <header class="navbar">
-    <div class="container-fluid">
-      <div class="wrap load-up">
-      <nav class="navbar-header">
-         <h1><%= link_to 'MuscleDiary', root_path %></h1>
+  <header class="head">
+      <nav class="navbar">
+        <div class="wrap load-up">
+         <h1>MuscleDiary</h1>
+        </div>
       </nav>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav">
                 <% if admin_signed_in? %>
                     <li class="nav-item"><%= link_to 'お問い合わせ一覧', admins_contacts_path %></li>
                     <li class="nav-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
                 <% elsif user_signed_in? %>
                     <li class="nav-item"><%= link_to 'ALL WORKOUT', muscles_path %></li>
-                    <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path %></li>
-                    <li class="nav-item"><%= link_to 'CONTACT', new_contact_path %></li>
+                     <li class="nav-item"><%= link_to 'FRIEND WORKOUT', new_muscle_path %></li>
                     <li class="nav-item"><%= link_to 'TODAY WORKOUT', new_muscle_path %></li>
+                    <li class="nav-item"><%= link_to 'CONTACT', new_contact_path %></li>
+                    <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path %></li>
 
 
                 <% else %>
-                <li class="nav-item"><%= link_to 'About', homes_about_path %></li>
-                    <li class="nav-item"><%= link_to 'SIGN UP', new_user_registration_path %></li>
+                    <li class="nav-item"><%= link_to 'ABOUT', homes_about_path %></li>
                     <li class="nav-item"><%= link_to 'CONTACT', new_contact_path %></li>
-                    <li class="nav-item"><%= link_to 'ログイン',  new_user_session_path %></li>
-                </ul>
+                    <li class="nav-item"><%= link_to 'SIGN UP', new_user_registration_path %></li>
+                    <li class="nav-item"><%= link_to 'LOG IN',  new_user_session_path %></li>
                 <% end %>
-      </div>
+      </ul>
   </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <div class="container">
     <%= yield %>
-    </div>
   </body>
 </html>

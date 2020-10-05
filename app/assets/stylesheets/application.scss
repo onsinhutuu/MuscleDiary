@@ -14,16 +14,119 @@
 @import "bootstrap";
 @import " font-awesome ";
 
-main {
-  background-image: url(muscle.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
-  z-index: 0;
+a {
+color:#000;
+text-decoration:underline;
 }
+.notice {
+	padding-top: 20px;
+}
+.form-row {
+	justify-content: center;
+}
+input[type="text"] {
+        width: 500px;
+        height: 40px;
+    }
+input[type="password"] {
+        width: 500px;
+        height: 40px;
+    }
+input[type="email"] {
+        width: 500px;
+        height: 40px;
+    }
+.form-group {
+	width: 100%;
+}
+.form-field {
+	width: 100%;
+	padding-left: 300px;
+}
+.btn-gradient-radius {
+    display: inline-block;
+    padding: 7px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #FFF;
+    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    transition: .4s;
+    font-size: 20px;
+}
+.navbar {
+	font-style: italic;
+	padding-top: 20px;
+	padding-left: 50px;
+}
+.nav {
+	width: 60%;
+}
+.nav-item {
+	padding-top: 30px;
+	padding-left: 10px;
+	font-size: 20px;
 
+}
+#top {
+  background: url(muscle.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+  text-align: center;
+  color: #fff;
+}
+#all {
+	background-color: #EEEEEE;
+}
+#main {
+	width: 100%;
+	padding-top: 30px;
+	text-align: center;
+}
+.top-title{
+	padding-top: 50px;
+	font-weight: bold;
+	font-style: italic;
+}
+.head {
+	display: flex;
+	justify-content: flex-end;
+	height: 50px;
+}
+.head > :first-child {
+  margin-right: auto;
+}
+.intro-title {
+	text-align: center;
+	padding-top: 30px;
+	font-weight: bold;
+}
+.intro-box-count {
+	font-weight: bold;
+	font-size: 30px;
+}
+.intro-box-title {
+	padding-top: 10px;
+	padding-left: 10px;
+	font-size: 20px;
+}
+.marker {
+	background: linear-gradient(transparent 70%, #FF0461 70%);
+}
+.intro-box {
+	box-shadow: 0 0 10px 10px #eceff1;
+    padding: 20px 20px 20px 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    z-index: 20;
+}
+.intro-row {
+	display: flex;
+}
+.field {
+	padding-top: 20px;
+}
 .scroll-fade{opacity: 0; transition: all 2s/*処理にかかる時間*/;}
 .scroll-up{opacity: 0; transform: translateY(100px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
 .scroll-up.done, .scroll-fade.done{opacity : 1; transform : translate(0, 0);}
