@@ -1,9 +1,14 @@
 <div class="container">
-	<h2>マイページ</h2>
-	<div class="row">
+	<h2 class="row justify-content-center">マイページ</h2>
+	<div class="row justify-content-center">
 	<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100', class: "img-circle pull-left profile-thumb" %>
 	</div>
-		<div class="row">
+	<div class="row justify-content-center">
+		<p class="muscle1_<%= @muscle.id %>">
+           <%= render 'users/follow', muscle: @muscle %>
+        </p>
+	</div>
+		<div class="row justify-content-center">
 			<span><strong>登録情報</strong></span>
 		    <table class="table  table-bordered">
 		    		<tr>

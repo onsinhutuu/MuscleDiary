@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    @muscle = Muscle.find(params[:id])
     @graph = Muscle.where(user_id: current_user.id)
   end
 
   def follows
+    user = User.find(params[:id])
+    @users = user.followings
   end
 
-  def follower
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
   end
 
   def edit

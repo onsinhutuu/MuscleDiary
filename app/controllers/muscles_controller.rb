@@ -2,14 +2,18 @@ class MusclesController < ApplicationController
   def show
     @muscle = Muscle.find(params[:id])
     @user = @muscle.user
+    @muscle_comment = MuscleComment.new
   end
 
   def index
     @user = current_user
-    @muscles = Muscle.all
+    @muscles = Muscle.all.page(params[:page]).per(10)
   end
 
   def following
+    user = User.find(current_user.id)
+    @users = user.followings
+    @muscles = Muscle.where(user_id: @users).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def edit

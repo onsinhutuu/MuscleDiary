@@ -1,49 +1,80 @@
-<table class="table">
-        <thead>
-          <tr>
-          <th></th>
-          <th>名前</th>
-          <th>部位</th>
-          <th>種目</th>
-          <th>重さ(kg)</th>
-          <th>レップ数</th>
-          <th>セット数</th>
-          <th>メモ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-          <td>
-          <%= attachment_image_tag @user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
-          </td>
-          <td>
-          <%= link_to @user.name, user_path(@user.id) %>
-          </td>
-          <td>
-            <%= @muscle.part.name %>
-          </td>
-          <td>
-          <%= @muscle.genre %>
-          </td>
-          <td>
-          <%= @muscle.weight %>
-          </td>
-          <td>
-          <%= @muscle.rep%>
-          </td>
-          <td>
-          <%= @muscle.set_count%>
-          </td>
-          <td>
-          <%= @muscle.memo %>
-          </td>
-          <td>
-            <% if @muscle.user == current_user %>
-            <%= link_to "編集する", edit_muscle_path(@muscle) %>
-            <%= link_to "削除する",muscle_path(@muscle), method: :delete, "data-confirm" => "本当に消しますか？" %>
-            <%= link_to "ALL WORKOUTへ", muscles_path %>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table">
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered">
+            <thead>
+              <tr>
+              <th></th>
+              <th>名前</th>
+              <th>部位</th>
+              <th>種目</th>
+              <th>重さ(kg)</th>
+              <th>レップ数</th>
+              <th>セット数</th>
+              <th>メモ</th>
+              <th>いいね</th>
+              <th>コメント数</th>
+              <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td>
+              <%= attachment_image_tag @user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
+              </td>
+              <td>
+              <%= link_to @user.name, user_path(@user) %>
+              </td>
+              <td>
+                <%= @muscle.part.name %>
+              </td>
+              <td>
+              <%= @muscle.genre %>
+              </td>
+              <td>
+              <%= @muscle.weight %>
+              </td>
+              <td>
+              <%= @muscle.rep%>
+              </td>
+              <td>
+              <%= @muscle.set_count%>
+              </td>
+              <td>
+              <%= @muscle.memo %>
+              </td>
+              <td class="muscles_<%= @muscle.id %>">
+                <%= render 'muscles/favpage', muscle: @muscle %>
+              </td>
+              <td>
+                <p class="comment-count"><%= @muscle.muscle_comments.count %>件コメント</p>
+              </td>
+              <td class="muscle1_<%= @muscle.id %>">
+                <%= render 'users/follow', muscle: @muscle %>
+              </td>
+              <td>
+                <% if @muscle.user == current_user %>
+                <%= link_to "編集する", edit_muscle_path(@muscle) %>
+                <%= link_to "削除する",muscle_path(@muscle), method: :delete, "data-confirm" => "本当に消しますか？" %>
+                <%= link_to "ALL WORKOUTへ", muscles_path %>
+                <% end %>
+              </td>
+              </tr>
+            </tbody>
+    </table>
+    </div>
+    <table class="table">
+      <tr>
+      <td class="muscle_<%= @muscle.id %>">
+          <%= render 'muscles/comment', muscle: @muscle %>
+      </td>
+      </tr>
+    </table>
+      <%= form_with(model: [@muscle, @muscle_comment]) do |f| %>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= f.text_field :comment, class: "form-control",placeholder: "コメントをここに" %>
+          </div>
+        </div>
+        <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+      <% end %>
+</div>
