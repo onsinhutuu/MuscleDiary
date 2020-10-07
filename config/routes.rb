@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
 	root 'homes#top'
 		get 'homes/top' => 'homes#top'
 		get 'homes/about' => 'homes#about'
@@ -22,6 +20,7 @@ Rails.application.routes.draw do
 	namespace :admins do
 		resources :contacts, only: [:index, :edit, :update, :destroy]
 	end
+		get 'users/search' => 'searches#search'
 		resources :contacts, only: [:new, :create]
 		resources :parts, only: [:new, :create]
 		resources :muscles do

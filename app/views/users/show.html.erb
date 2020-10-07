@@ -1,30 +1,26 @@
-<div class="container">
+<div class="container-fluid">
 	<h2 class="row justify-content-center">マイページ</h2>
 	<div class="row justify-content-center">
-	<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100', class: "img-circle pull-left profile-thumb" %>
-	</div>
-	<div class="row justify-content-center">
-		<p class="muscle1_<%= @muscle.id %>">
-           <%= render 'users/follow', muscle: @muscle %>
-        </p>
-	</div>
-		<div class="row justify-content-center">
-			<span><strong>登録情報</strong></span>
-		    <table class="table  table-bordered">
-		    		<tr>
-		    			<th>名前</th>
-		    			<td><%= @user.name %></td>
-		    		</tr>
-		    		<tr>
-		    			<th>メールアドレス</th>
-		    			<td><%= @user.email %></td>
-		    		</tr>
-		    </table>
-		    <%= link_to "編集する", edit_user_path(@user), class: "btn btn-success" %>
-		    <%= link_to "パスワードを変更する", edit_user_registration_path(@user), class: "btn btn-primary" %>
-		    <%= link_to "部位を追加する", new_part_path, class: "btn btn-light" %>
-		</div>
-		<div class="row">
-			<%= pie_chart @graph.group(:genre).count %>
-		</div>
+		<div class="col-8 border">
+			<div class="row border-bottom">
+					<div class="col-4 text-center mt-4">
+						<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100', class: "img-circle" %><%= @user.name %>
+					</div>
+					<div class="col-4 text-center mt-5">
+						<a class="icon"><%= link_to "編集する", edit_user_path(@user) %><i class="fas fa-user-edit"></i></a>
+					</div>
+					<div class="col-4 text-center mt-5">
+	           			<a class="icon"><%= link_to "パスワードを変更する", edit_user_registration_path(@user) %><i class="fas fa-user-cog"></i></a>
+					</div>
+			</div>
+			<div class="row my-3">
+				<div class="col text-center">
+					<div class="muscle1_<%= @muscle.id %>">
+	           			<%= render 'users/follow', muscle: @muscle %>
+		    			<a class="icon"><%= link_to "部位を追加する", new_part_path %><i class="fas fa-plus-circle"></i></a>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+    </div>
 </div>

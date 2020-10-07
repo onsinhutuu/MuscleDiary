@@ -1,0 +1,55 @@
+<div class="container">
+	<% if @model == "user" %>
+	<div class="row  justify-content-center">
+	  <h2>ユーザー</h2>
+	</div>
+	<div class="row  justify-content-center">
+	   <% @datas.each do |datas| %>
+	   <table class="table">
+	   	<thead>
+			<tr>
+				<th></th>
+				<th>ユーザー名</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+			</thead>
+	   	<tbody>
+		   	<tr>
+			   	<td>
+			    	<%= attachment_image_tag datas, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
+			    </td>
+		    	<td>
+		    		<%= link_to datas.name, user_path(datas.id) %>
+		    	</td>
+		    </tr>
+		</tbody>
+	   </table>
+	   <% end %>
+	</div>
+
+	<% elsif @model == "muscle"%>
+	<div class="row  justify-content-center">
+	    <h2>筋トレ（種目）</h2>
+	</div>
+	<div class="row  justify-content-center">
+		<% @datas.each do |datas| %>
+		 <table class="table　 table-striped table-bordered">
+		 <tbody>
+	     <tr>
+	     <td>
+	     <%= attachment_image_tag datas.user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
+	     </td>
+	     <td><%= datas.genre %></td>
+	     </tr>
+	 	</tbody>
+	     </table>
+	     <% end %>
+	</div>
+	<% else %>
+	<% end %>
+</div>

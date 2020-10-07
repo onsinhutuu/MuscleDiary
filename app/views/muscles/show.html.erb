@@ -45,9 +45,6 @@
               <td class="muscles_<%= @muscle.id %>">
                 <%= render 'muscles/favpage', muscle: @muscle %>
               </td>
-              <td>
-                <p class="comment-count"><%= @muscle.muscle_comments.count %>件コメント</p>
-              </td>
               <td class="muscle1_<%= @muscle.id %>">
                 <%= render 'users/follow', muscle: @muscle %>
               </td>
