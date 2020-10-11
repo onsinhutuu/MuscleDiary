@@ -1,6 +1,6 @@
 <div class="container fluid">
     <div class="row  justify-content-center">
-        <%= render "users/shared/error_messages" %>
+        <%= render 'layouts/flashes' %>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <br/>

@@ -10,7 +10,7 @@ class PartsController < ApplicationController
   	@part = Part.new(part_params)
     @part.user_id = current_user.id
     if @part.save
-        redirect_to part_path(@part)
+        redirect_to big_path(@part.big_id)
     elsif params[:part][:big_id] ==  "" && params[:part][:name] ==  ""
       redirect_to request.referer
       flash[:notice] = "部位と種目が入力されていません"
@@ -24,10 +24,6 @@ class PartsController < ApplicationController
     end
   end
 
-  def show
-     @big = Big.find(params[:id])
-     @part = @big.parts
-  end
 
   private
 	   def part_params

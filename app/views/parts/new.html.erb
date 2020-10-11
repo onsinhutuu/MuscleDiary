@@ -1,27 +1,54 @@
 <div class="container fluid">
-	<div class="row justify-content-center">
-		<div class="col-7">
+	<div class="row justify-content-center border-part">
 		<%= form_with model: @part, local: true do |f| %>
+		<div class="col-4 mt-5 align-self-center text-left">
+				<%= f.label :name, "部位" %>
 				<%= f.collection_select :big_id, Big.all, :id, :name, :include_blank => "選択してください" %>
-				<%= f.label :name, "種目" %>
-				<%= f.text_area :name, placeholder: "懸垂"  %>
-				<%= f.submit "追加", class: "btn btn-primary" %>
+			<%= f.label :name, "種目" %>
+			<%= f.text_area :name, placeholder: "懸垂"  %>
+			<%= f.submit "追加", class: "btn btn-primary" %>
+		</div>
 		<% end %>
+		<div class="col-6 mt-5 align-self-center">
+		部位一覧)
+				<% @bigs.each.with_index(1) do |big, index| %>
+					<tr>
+						<th><%= index %>:</th>
+						<td><%= link_to big.name, big_path(big.id) %></td>
+					</tr>
+				<% end %>
 		</div>
-		<div class="col-5">
-			部位一覧）<br>
-			<% @bigs.each.with_index(1) do |big, index| %>
-				<tr>
-					<th><%= index %>:</th>
-					<td><%= link_to big.name, part_path(big.id) %></td>
-				</tr>
-			<% end %>
+	</div>
+	<div class="row justify-content-center border-bottom">
+		<div class="col-4 mt-5 align-self-center text-left">
+			トレーニングメニュー例　(胸重視）<br>
+				月：胸＋腕（上腕三頭筋）<br>
+				火：背中＋腕（上腕二頭筋）<br>
+				水：休み<br>
+				木：肩＋腕（上腕三頭筋）<br>
+				金：脚＋腕（上腕二頭筋）<br>
+				土：胸＋腕（上腕三頭筋）<br>
+				日：休み
 		</div>
-	<div class="row justify-content-center">
-			トレーニングメニュー例）<br>
-				A：胸＋腕（上腕三頭筋）
-				B：背中＋腕（上腕二頭筋）
-				C：肩＋腕（上腕三頭筋）
-				D：脚＋腕（上腕二頭筋）
+		<div class="col-4 mt-5 align-self-center text-left">
+			トレーニングメニュー例（おすすめ！）<br>
+				月：胸＋ 肩(フロント）+ 腕（上腕三頭筋）<br>
+				火：背中＋ 肩(リア）+ 腕（上腕二頭筋）<br>
+				水：脚＋ 肩(サイド）<br>
+				木：休み<br>
+				金：胸＋ 肩(フロント）+ 腕（上腕三頭筋）<br>
+				土：背中＋ 肩(リア）+ 腕（上腕二頭筋）<br>
+				日：脚＋ 肩(サイド）<br>
+		</div>
+		<div class="col-4 mt-5 align-self-center text-left">
+			トレーニングメニュー例（肩重視）<br>
+				月：胸+腹筋<br>
+				火：肩＋腕（上腕三頭筋）<br>
+				水：背中＋腕（上腕二頭筋)<br>
+				木：休み<br>
+				金：脚＋腕（上腕二頭筋）<br>
+				土：肩＋腕（上腕三頭筋）<br>
+				日：休み
+		</div>
 	</div>
 </div>

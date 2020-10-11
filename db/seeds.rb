@@ -21,9 +21,6 @@ Big.create!(
       name: '脚',
     },
     {
-      name: '腕',
-    },
-    {
       name: '肩',
     },
     {

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'bigs/show'
 	root 'homes#top'
 		get 'homes/top' => 'homes#top'
 		get 'homes/about' => 'homes#about'
@@ -23,7 +24,8 @@ Rails.application.routes.draw do
 		get 'users/search' => 'searches#search'
 		get '/muscle/hashtag/:name', to: "muscles#hashtag"
 		resources :contacts, only: [:new, :create]
-		resources :parts, only: [:new, :create, :show]
+		resources :parts, only: [:new, :create]
+		resources :bigs, only: [:show]
 		resources :muscles, only: [:show, :update, :edit, :index, :destroy, :create]do
 			resources :muscle_comments, only: [:create, :destroy]
 			resource :favorites, only: [:create, :destroy]
