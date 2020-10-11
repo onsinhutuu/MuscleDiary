@@ -1,8 +1,14 @@
 class MusclesController < ApplicationController
+  before_action :authenticate_user!
   def show
     @muscle = Muscle.find(params[:id])
     @user = @muscle.user
     @muscle_comment = MuscleComment.new
+  end
+
+  def hashtag
+    @tag = Tag.find_by(tag_name: params[:name])
+    @muscles = @tag.muscles
   end
 
   def index
@@ -35,16 +41,21 @@ class MusclesController < ApplicationController
     end
   end
 
-  def new
+  def workout
     @muscle = Muscle.new
     @user = current_user
+    @part = Part.find(params[:id])
   end
 
   def create
     @muscle = Muscle.new(muscle_params)
     @muscle.user_id = current_user.id
-    @muscle.save
-    redirect_to muscle_path(@muscle.id)
+    if @muscle.save
+    redirect_to muscle_path(@muscle)
+    else
+      redirect_to request.referer
+      flash[:notice] = "全て記入してから投稿して下さい"
+    end
   end
 
   def destroy
@@ -55,6 +66,6 @@ class MusclesController < ApplicationController
 
   private
     def muscle_params
-        params.require(:muscle).permit(:memo, :genre, :set_count, :weight, :rep, :part_id)
+        params.require(:muscle).permit(:memo, :set_count, :weight, :rep, :part_id, :work_tag)
     end
 end

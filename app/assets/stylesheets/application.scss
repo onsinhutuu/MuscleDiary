@@ -34,9 +34,6 @@ table, th, td {
 .notice {
 	padding-top: 20px;
 }
-.form-row {
-	justify-content: center;
-}
 input[type="text"] {
         width: 500px;
         height: 40px;
@@ -49,13 +46,7 @@ input[type="email"] {
         width: 500px;
         height: 40px;
     }
-.form-group {
-	width: 100%;
-}
-.form-field {
-	width: 100%;
-	padding-left: 300px;
-}
+/*navbar*/
 .btn-gradient-radius {
     display: inline-block;
     padding: 7px 20px;
@@ -169,6 +160,20 @@ i {
 .icon {
 	margin-top: 10px;
 	margin-left: 20px;
+}
+.card{
+	width:60%;
+}
+.card-header {
+	display: flex;
+	justify-content: center;
+}
+.card-name {
+	padding-top: 30px;
+	padding-left: 30px;
+}
+.card-body {
+	text-align: center;
 }
 .scroll-fade{opacity: 0; transition: all 2s/*処理にかかる時間*/;}
 .scroll-up{opacity: 0; transform: translateY(300px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}

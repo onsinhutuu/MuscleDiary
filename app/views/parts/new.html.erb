@@ -1,20 +1,27 @@
-<div class="container">
-	<div class="row">
+<div class="container fluid">
+	<div class="row justify-content-center">
+		<div class="col-7">
 		<%= form_with model: @part, local: true do |f| %>
-			<div class="field">
-				<%= f.label :name, "部位" %>
-				<%= f.text_area :name, placeholder: "背中"  %>
-			</div>
-		<%= f.submit "追加", class: "btn btn-primary" %>
+				<%= f.collection_select :big_id, Big.all, :id, :name, :include_blank => "選択してください" %>
+				<%= f.label :name, "種目" %>
+				<%= f.text_area :name, placeholder: "懸垂"  %>
+				<%= f.submit "追加", class: "btn btn-primary" %>
 		<% end %>
+		</div>
+		<div class="col-5">
+			部位一覧）<br>
+			<% @bigs.each.with_index(1) do |big, index| %>
+				<tr>
+					<th><%= index %>:</th>
+					<td><%= link_to big.name, part_path(big.id) %></td>
+				</tr>
+			<% end %>
+		</div>
+	<div class="row justify-content-center">
+			トレーニングメニュー例）<br>
+				A：胸＋腕（上腕三頭筋）
+				B：背中＋腕（上腕二頭筋）
+				C：肩＋腕（上腕三頭筋）
+				D：脚＋腕（上腕二頭筋）
 	</div>
-	<div class="row">
-		<table class="table table-bordered">
-				<% @parts.each.with_index(1) do |part, idx| %>
-		    		<tr>
-		    			<th>部位<%= idx %></th>
-		    			<td><%= part.name %></td>
-		    		</tr>
-				<% end %>
-		</table>
 </div>

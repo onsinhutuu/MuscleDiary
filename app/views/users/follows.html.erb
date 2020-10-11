@@ -1,5 +1,5 @@
-<div class="container">
-	<div class="row">
+<div class="container fluid">
+	<div class="row justify-content-center">
 		<% @users.each do |user| %>
 		  <hr>
 		  	<table class="table">
@@ -8,16 +8,9 @@
 		         <%= user.name %>
 		      </td>
 		      <td>
-		         <%= link_to "マイページへ", user_path, class: "btn btn-light" %>
+		         <%= link_to "マイページへ", user_path(user.id), class: "btn btn-light" %>
 		      </td>
 		    <td>
-		    <% if current_user != user %>
-		        <% if user.followed_by?(current_user) %>
-		            <p><%=link_to "フォロー外す", user_relationships_path(user.id), method: :delete %></p>
-		        <% else %>
-		            <p><%=link_to "フォローする", user_relationships_path(user.id), method: :post %></p>
-		        <% end %>
-		    <% end %>
 			</td>
 			</tr>
 			</table>

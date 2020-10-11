@@ -9,61 +9,109 @@
 	</div>
 	<div class="row  justify-content-center">
 		<h1>ALL WORKOUT</h1>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>投稿日時</th>
-					<th></th>
-					<th>名前</th>
-					<th>部位</th>
-					<th>種目</th>
-					<th>重さ(kg)</th>
-					<th>レップ数</th>
-					<th>セット数</th>
-					<th>いいね</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @muscles.each do |muscle| %>
-				<tr>
-				<td>
-				<%= muscle.created_at.strftime('%Y/%m/%d %H:%M') %>
-				</td>
-				<td>
-				<%= link_to user_path(muscle.user_id) do %>
-				<%= attachment_image_tag muscle.user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
-				<% end %>
-				</td>
-				<td>
-					<%= link_to muscle.user.name, muscle_path(muscle.id) %>
-				</td>
-				<td>
-					<%= muscle.part.name %>
-				</td>
-				<td>
-					<%= muscle.genre %>
-				</td>
-				<td>
-					<%= muscle.weight %>
-				</td>
-				<td>
-					<%= muscle.rep%>
-				</td>
-				<td>
-					<%= muscle.set_count %>
-				</td>
-				<td class="muscle_<%= muscle.id %>">
-					<%= render 'favpage', muscle: muscle %>
-				</td>
-				<td>
-					<%= link_to "詳細", muscle_path(muscle.id) %>
-				</td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
 	</div>
+	<% @muscles.each do |muscle| %>
+	<div class="row justify-content-center">
+		<!-- work_out本体 -->
+		<div class="col-8  my-3 border">
+			<!-- ヘッダー -->
+			<div class="row justify-content-center border-bottom">
+				<div class="col-6 pl-0 align-self-center text-left">
+					<td>
+					<%= link_to user_path(muscle.user_id) do %>
+					<%= attachment_image_tag muscle.user, :image, :fill, 70, 70, fallback: "no_image.jpg", size:'70x70', class: "rounded-circle" %>
+					<% end %>
+					</td>
+					<td>
+					<%= link_to muscle.user.name, muscle_path(muscle.id) %>
+					</td>
+				</div>
+				<div class="col-4 pl-0 align-self-center text-right">
+					<td>
+					<%= muscle.created_at.strftime('%Y/%m/%d') %>
+					</td>
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- 左半分 -->
+				<div class="col-md-6 text-center pt-5">
+				<div class="row">
+						<!-- タグ -->
+						<div class="col mt-2">
+							<i class="fas fa-tags"></i><%= render_with_hashtags(muscle.work_tag) %>
+						</div>
+					</div>
+				</div>
+				<!-- 右半分 -->
+				<div class="col-md-6">
+					<div class="row my-2 border-bottom">
+						<!-- 筋トレの簡易情報について -->
+						<div class="col-2">
+						<i class="fas fa-crow"></i>
+						</div>
+						<div class="col-10">
+							<td>
+								<%= muscle.part.name %>
+							</td>
+						</div>
+						<div class="col-2">
+							<i class="fas fa-frog"></i>
+						</div>
+						<div class="col-10">
+							<td>
+								<%= muscle.weight %>kg
+							</td>
+						</div>
+						<div class="col-2">
+							<i class="fas fa-dragon"></i>
+						</div>
+						<div class="col-10">
+							<td>
+								<%= muscle.rep %>rep
+							</td>
+						</div>
+						<div class="col-2">
+						<i class="fas fa-cat"></i>
+						</div>
+						<div class="col-10">
+							<td>
+								<%= muscle.set_count%>set
+							</td>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<!-- コメント -->
+						<div class="col">
+							<i class="fas fa-comment"></i>
+							<td>
+								<%= muscle.muscle_comments.count %>件コメント
+							</td>
+						</div>
+						<!-- いいね -->
+						<div class="col">
+							<div id="favorite-2">
+								<td>
+									<p class="muscles_<%= muscle.id %>">
+            <%= render 'muscles/favpage', muscle: muscle %>
+        	</p>
+          </td>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row my-3 mx-auto">
+					<!-- 詳細ページへのボタン -->
+					<div class="col-12 text-center">
+						<td>
+							<%= link_to "詳細", muscle_path(muscle.id) %>
+						</td>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% end %>
 	<div class="row justify-content-center">
  	<%= paginate @muscles %>
  	</div>

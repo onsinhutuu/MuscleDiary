@@ -1,0 +1,61 @@
+<div class="container">
+	<div class="row  justify-content-center">
+		<h1>#<%= @tag.tag_name %>タグの一覧</h1>
+	</div>
+	<div class="row  justify-content-center">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>投稿日時</th>
+					<th></th>
+					<th>名前</th>
+					<th>部位</th>
+					<th>種目</th>
+					<th>重さ(kg)</th>
+					<th>レップ数</th>
+					<th>セット数</th>
+					<th>いいね</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @muscles.each do |muscle| %>
+				<tr>
+				<td>
+				<%= muscle.created_at.strftime('%Y/%m/%d %H:%M') %>
+				</td>
+				<td>
+				<%= link_to user_path(muscle.user_id) do %>
+				<%= attachment_image_tag muscle.user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
+				<% end %>
+				</td>
+				<td>
+					<%= link_to muscle.user.name, muscle_path(muscle.id) %>
+				</td>
+				<td>
+					<%= muscle.part.name %>
+				</td>
+				<td>
+					<%= muscle.genre %>
+				</td>
+				<td>
+					<%= muscle.weight %>
+				</td>
+				<td>
+					<%= muscle.rep%>
+				</td>
+				<td>
+					<%= muscle.set_count %>
+				</td>
+				<td class="muscle_<%= muscle.id %>">
+					<%= render 'favpage', muscle: muscle %>
+				</td>
+				<td>
+					<%= link_to "詳細", muscle_path(muscle.id) %>
+				</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

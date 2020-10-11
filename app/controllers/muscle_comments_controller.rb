@@ -1,9 +1,15 @@
 class MuscleCommentsController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		@muscle = Muscle.find(params[:muscle_id])
         comment = current_user.muscle_comments.new(muscle_comment_params)
         comment.muscle_id = @muscle.id
-        comment.save
+        if comment.save
+
+        else
+        	redirect_to request.referer
+        	flash[:notice] = "コメントが入力されていません"
+        end
 	end
 
 	def destroy

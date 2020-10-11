@@ -21,13 +21,15 @@ Rails.application.routes.draw do
 		resources :contacts, only: [:index, :edit, :update, :destroy]
 	end
 		get 'users/search' => 'searches#search'
+		get '/muscle/hashtag/:name', to: "muscles#hashtag"
 		resources :contacts, only: [:new, :create]
-		resources :parts, only: [:new, :create]
-		resources :muscles do
+		resources :parts, only: [:new, :create, :show]
+		resources :muscles, only: [:show, :update, :edit, :index, :destroy, :create]do
 			resources :muscle_comments, only: [:create, :destroy]
 			resource :favorites, only: [:create, :destroy]
 			resource :tags, only: [:index]
 			get :following, on: :member
+			get :workout, on: :member
  		end
 
 		resources :users, only: [:show, :update, :edit] do

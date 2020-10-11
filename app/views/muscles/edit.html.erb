@@ -1,57 +1,43 @@
-<h1>投稿編集</h1>
 <div class="container">
-	<%= render "users/shared/error_messages", resource: @muscle %>
+	<div class="row justify-content-center">
+		<h1>投稿編集</h1>
+	</div>
 	<%= form_with model: @muscle, local: true do |f| %>
-	<div class="row">
-		<div class="col-md-4 offset-md-3">
-			<div class="field">
-				<%= f.label :genre, "部位" %>
-				<%= f.collection_select :part_id, @user.parts, :id, :name, :include_blank => "選択してください" %>
-			</div>
-		</div>
+	<div class="row justify-content-center">
 	</div>
-	<div class="row">
-		<div class="col-md-4 offset-md-3">
-			<div class="field">
-				<%= f.label :genre, "種目" %>
-				<%= f.text_field :genre, placeholder: "懸垂"  %>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4 offset-md-3">
+	<div class="row justify-content-center">
 			<div class="field">
 				<%= f.label :weight, "重量" %>
 				<%= f.text_field :weight, placeholder: "100kg"%>
 			</div>
-		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-4 offset-md-3">
+	<div class="row justify-content-center">
 			<div class="field">
 			    <%= f.label :rep, "回数" %>
 			    <%= f.text_field :rep, placeholder: "10rep"%>
 			</div>
-		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-4 offset-md-3">
-			<div class="field">
+	<div class="row justify-content-center">
+			<div class="field-set">
 			    <%= f.label :set_count, "セット数" %>
 			    <%= f.text_field :set_count, placeholder: "３セット"%>
 			</div>
-		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-4 offset-md-3">
+	<div class="row justify-content-center">
 			<div class="field">
-			    <%= f.label :memo, "メモ" %>
-			    <%= f.text_field :memo%>
+			   <%= f.label :memo, "メモ" %>
+			   <%= f.text_field :memo %>
 			</div>
-		</div>
-		<div class="col-md-4 offset-md-7">
-			<%= f.submit "編集内容を保存する", class: "btn btn-primary w-50" %>
-		</div>
+	</div>
+	<div class="row justify-content-center">
+			<div class="field">
+			   <%= f.label :work_tag, "タグ" %>
+			   <%= f.text_field :work_tag, placeholder: "#を先頭につけて下さい　例：#今日の筋トレ" %>
+			</div>
+	</div>
+	<div class="row justify-content-center">
+			<%= f.hidden_field :part_id, :value => current_user.id %>
+			<%= f.submit "編集内容を保存する", class: "btn btn-primary w-25" %>
 	</div>
 	<% end %>
 </div>

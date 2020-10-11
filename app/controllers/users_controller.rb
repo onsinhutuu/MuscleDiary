@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
-    @muscle = Muscle.find(params[:id])
     @graph = Muscle.where(user_id: current_user.id)
   end
 
