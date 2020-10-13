@@ -27,14 +27,13 @@
 	        </div>
 	    </div>
     </div>
-    <div class="row justify-content-center">
     <%= month_calendar events: @muscles do |date, muscles|%>
     	<%= date.day %>
-	    <% muscles.each do |part| %>
+
+	    <% muscles.each do |muscle| %>
 	    <div>
-	    	<%= part.id %>
+	    	<%= link_to "#{ muscle.part.name }",muscle_path(muscle.id) %>
 	    </div>
 	    <% end %>
     <% end %>
-	</div>
 </div>

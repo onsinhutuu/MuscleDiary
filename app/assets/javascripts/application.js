@@ -18,3 +18,28 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+    load_effect();
+    $(window).scroll(function (){
+        scroll_effect();
+    });
+});
+ 
+//ふわっとロード
+function load_effect(){
+    var tt = $(window).scrollTop();
+    var hh = $(window).height();
+    $('.load-fade').each(function(){
+        var yy = $(this).offset().top;
+        if (tt > yy - hh){
+            $(this).addClass('done');
+        }
+    });
+    $('.load-up').each(function(){
+        var yy = $(this).offset().top;
+        if (tt > yy - hh){
+            $(this).addClass('done');
+        }
+    });
+}

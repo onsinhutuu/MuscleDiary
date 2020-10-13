@@ -29,10 +29,6 @@ text-decoration:underline;
 	margin-left: 10px;
 	margin-top: 10px;
 }
-/* セル幅を自動調整 */
-table, th, td {
-  width: auto !important;
-}
 /*aboutページ*/
 .about-box {
 	background-color: #A9A9A9;
@@ -130,9 +126,10 @@ input[type="email"] {
 	text-align: center;
 }
 .top-title{
-	padding-top: 50px;
-	font-weight: bold;
-	font-style: italic;
+	padding-top: 100px;
+    font-size: 90px;
+    font-weight: bold;
+    font-style: italic;
 }
 .head {
 	display: flex;
@@ -218,9 +215,6 @@ i {
 .card-body {
 	text-align: center;
 }
-.scroll-fade{opacity: 0; transition: all 2s/*処理にかかる時間*/;}
-.scroll-up{opacity: 0; transform: translateY(300px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
-.scroll-up.done, .scroll-fade.done{opacity : 1; transform : translate(0, 0);}
-.load-fade {opacity : 0; transition : all 2s/*処理にかかる時間*/;}
-.load-up{opacity: 0; transform: translateY(300px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
+
+.load-up{opacity: 0; transform: translateY(200px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
 .load-up.done, .load-fade.done{opacity : 1; transform : translate(0, 0);}
