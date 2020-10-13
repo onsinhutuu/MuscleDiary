@@ -6,7 +6,7 @@
 				<%= f.collection_select :big_id, Big.all, :id, :name, :include_blank => "選択してください" %>
 			<%= f.label :name, "種目" %>
 			<%= f.text_area :name, placeholder: "懸垂"  %>
-			<%= f.submit "追加", class: "btn btn-primary" %>
+			<%= f.submit "追加", class: "btn btn-danger" %>
 		</div>
 		<% end %>
 		<div class="col-6 mt-5 align-self-center">

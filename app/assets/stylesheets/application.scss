@@ -10,7 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  */
+
 @import "bootstrap";
 @import " font-awesome ";
 * {
@@ -31,18 +33,62 @@ text-decoration:underline;
 table, th, td {
   width: auto !important;
 }
-header {
-	margin-bottom: 20px;
+/*aboutページ*/
+.about-box {
+	background-color: #A9A9A9;
+}
+.about-text {
+	width: 100%;
+	height: auto;
+    padding: 20px 30px;
+    text-align: center;
+    padding: 1rem 2rem;
+    background: #fff;
+    -webkit-box-shadow: 5px 5px 0 #cccccc;
+    box-shadow: 5px 5px 0 #cccccc;
+}
+.previews{
+	margin: 0 auto;
+	margin-top: 30px;
+	width:40%;
+}
+.fa-arrow-alt-circle-left {
+  font-size: 50px;
+  position: absolute;
+  z-index: 100;
+  top: 250px;
+}
+.fa-arrow-alt-circle-right {
+  font-size: 50px;
+  position: absolute;
+  z-index: 100;
+  right: 10px;
+  top: 250px
+}
+/*nabvar*/
+.logo {
+    width: 80px;
+    height: 80px;
 }
 .nav-item {
+	font-size: 20px;
 	margin-left: 10px;
 }
+.navbar-toggler{
+  background-color: #000000;
+  border-color: white;
+}
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
 .navbar {
-	 background-image: linear-gradient(45deg, #FF99FF 0%, #ff8b5f 100%);
+	 height:100px;
+	 background-image: linear-gradient(45deg, #000000 0%, #EEEEEE 100%);
 }
 .alert {
 	width:30%;
 }
+/*text_fieldの長さ*/
 input[type="text"] {
         width: 500px;
         height: 40px;
@@ -55,7 +101,7 @@ input[type="email"] {
         width: 500px;
         height: 40px;
     }
-/*navbar*/
+/*topページ*/
 .btn-gradient-radius {
     display: inline-block;
     padding: 7px 20px;
@@ -66,7 +112,6 @@ input[type="email"] {
     transition: .4s;
     font-size: 20px;
 }
-/*topページ*/
 #top {
   background: url(muscle.jpg);
   background-position: center;
@@ -150,7 +195,6 @@ input[type="email"] {
 	border: solid 1px;
 }
 .border-part {
-	background-image: linear-gradient(45deg, #FF6699 0%, #FFFFFF 100%);
 	border: solid 1px;
 }
 i {

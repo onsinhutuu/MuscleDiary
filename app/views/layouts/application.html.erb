@@ -6,14 +6,20 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
+
   <header>
     <nav class="navbar navbar-expand-lg">
-      <%= link_to 'MuscleDiary', root_path, :class => "navbar-brand" %>
+      <div data-turbolinks='false'>
+      <a href="/">
+      <img class="logo rounded-circle" src="/assets/muscle2.jpg"></a>
+      </div>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,50 +27,50 @@
   　　　　<ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'お問い合わせ一覧', admins_contacts_path, :class => "d-none d-lg-block" %>
-              <%= link_to 'お問い合わせ一覧', admins_contacts_path, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'お問い合わせ一覧', admins_contacts_path, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+              <%= link_to 'お問い合わせ一覧', admins_contacts_path, :class => "d-block d-lg-none nav-link text-right" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'LOGOUT', destroy_admin_session_path, method: :delete, :class => "d-none d-lg-block" %>
-              <%= link_to 'LOGOUT', destroy_admin_session_path, method: :delete, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'LOGOUT', destroy_admin_session_path, method: :delete, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+              <%= link_to 'LOGOUT', destroy_admin_session_path, method: :delete, :class => "d-block d-lg-none nav-link text-right" %>
             </li>
           <% elsif user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'ALL WORKOUT', muscles_path, :class => "d-none d-lg-block" %>
-              <%= link_to 'ALL WORKOUT', muscles_path, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'ALL WORKOUT', muscles_path, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+              <%= link_to 'ALL WORKOUT', muscles_path, :class => "d-block d-lg-none nav-link text-right" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'FRIEND WORKOUT', following_muscle_path(current_user), :class => "d-none d-lg-block" %>
-              <%= link_to 'FRIEND WORKOUT', following_muscle_path(current_user), :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'FRIEND WORKOUT', following_muscle_path(current_user), :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+              <%= link_to 'FRIEND WORKOUT', following_muscle_path(current_user), :class => "d-block d-lg-none nav-link text-right" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'TODAY WORKOUT', new_part_path, :class => "d-none d-lg-block" %>
-              <%= link_to 'TODAY WORKOUT', new_part_path, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'TODAY WORKOUT', new_part_path, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+              <%= link_to 'TODAY WORKOUT', new_part_path, :class => "d-block d-lg-none nav-link text-right" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'MY PAGE', user_path(current_user),data: {"turbolinks" => false}, :class => "d-none d-lg-block" %>
-               <%= link_to 'MY PAGE', user_path(current_user),data: {"turbolinks" => false}, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'MY PAGE', user_path(current_user),data: {"turbolinks" => false}, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+               <%= link_to 'MY PAGE', user_path(current_user),data: {"turbolinks" => false}, :class => "d-block d-lg-none nav-link text-right" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'CONTACT', new_contact_path, :class => "d-none d-lg-block" %>
-              <%= link_to 'CONTACT', new_contact_path, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'CONTACT', new_contact_path, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+              <%= link_to 'CONTACT', new_contact_path, :class => "d-block d-lg-none nav-link text-right" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'LOG OUT', destroy_user_session_path, :class => "d-none d-lg-block" %>
-              <%= link_to 'LOG OUT', destroy_user_session_path, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'LOG OUT', destroy_user_session_path, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+              <%= link_to 'LOG OUT', destroy_user_session_path, :class => "d-block d-lg-none nav-link text-right" %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to 'ABOUT', homes_about_path, :class => "d-none d-lg-block" %>
-              <%= link_to 'ABOUT', homes_about_path, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'ABOUT', homes_about_path, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+              <%= link_to 'ABOUT', homes_about_path, :class => "d-block d-lg-none nav-link text-right" %>
               </li>
             <li class="nav-item">
-              <%= link_to 'SIGN UP', new_user_registration_path, :class => "d-none d-lg-block" %>
-              <%= link_to 'SIGN UP', new_user_registration_path, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'SIGN UP', new_user_registration_path, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+              <%= link_to 'SIGN UP', new_user_registration_path, :class => "d-block d-lg-none nav-link text-right" %>
               </li>
             <li class="nav-item">
-              <%= link_to 'LOG IN',  new_user_session_path, :class => "d-none d-lg-block" %>
-               <%= link_to 'LOG IN',  new_user_session_path, :class => "d-block d-lg-none nav-link" %>
+              <%= link_to 'LOG IN',  new_user_session_path, :class => "d-none d-lg-block btn btn-light rounded-pill" %>
+               <%= link_to 'LOG IN',  new_user_session_path, :class => "d-block d-lg-none nav-link text-right" %>
               </li>
           <% end %>
         </ul>
@@ -72,6 +78,12 @@
     </nav>
   </header>
   <%= render 'layouts/flashes' %>
+  <div
+  <% if content_for?(:body_attributes) %>
+    <%= yield(:body_attributes) %>
+  <% end %>
+  >
     <%= yield %>
+  </div>
   </body>
 </html>

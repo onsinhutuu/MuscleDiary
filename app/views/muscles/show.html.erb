@@ -10,7 +10,7 @@
       </div>
       <div class="card-header">
          <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100', class: "img-circle" %>
-        <h4 class="card-name"><%= @user.name %>の投稿</h4>
+        <h4 class="card-name"><%= link_to "#{ @user.name }の投稿", user_path(@user) %></h4>
       </div>
       <div class="card-body">
           <h5 style="font-weight: bold;"><i class="fas fa-calendar-week"></i> 日付</h5>
@@ -46,9 +46,9 @@
           <%= render_with_hashtags(@muscle.work_tag) %>
           <hr>
           <% if @muscle.user == current_user %>
-            <%= link_to "編集する", edit_muscle_path(@muscle) %>
-            <%= link_to "削除する",muscle_path(@muscle), method: :delete, "data-confirm" => "本当に消しますか？" %>
-            <%= link_to "ALL WORKOUTへ", muscles_path %>
+            <%= link_to "編集する", edit_muscle_path(@muscle), class: "btn btn-success" %>
+            <%= link_to "削除する",muscle_path(@muscle), method: :delete, "data-confirm" => "本当に消しますか？",  class: "btn btn-dark"%>
+            <%= link_to "ALL WORKOUTへ", muscles_path, class: "btn btn-danger" %>
           <% end %>
       </div>
     </div>

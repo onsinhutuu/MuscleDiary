@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 		get '/muscle/hashtag/:name', to: "muscles#hashtag"
 		resources :contacts, only: [:new, :create]
 		resources :parts, only: [:new, :create]
-		resources :bigs, only: [:show]
+		resources :bigs, only: [:show, :destroy]
 		resources :muscles, only: [:show, :update, :edit, :index, :destroy, :create]do
 			resources :muscle_comments, only: [:create, :destroy]
 			resource :favorites, only: [:create, :destroy]

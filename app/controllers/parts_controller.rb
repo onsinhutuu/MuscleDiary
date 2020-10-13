@@ -11,6 +11,7 @@ class PartsController < ApplicationController
     @part.user_id = current_user.id
     if @part.save
         redirect_to big_path(@part.big_id)
+        flash[:notice] = "#{ @part.name }を追加しました！！"
     elsif params[:part][:big_id] ==  "" && params[:part][:name] ==  ""
       redirect_to request.referer
       flash[:notice] = "部位と種目が入力されていません"

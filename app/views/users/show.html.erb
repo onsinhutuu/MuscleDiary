@@ -20,11 +20,21 @@
 					<div class="user_<%= @user.id %>">
 	           			<%= render 'users/follow', user: @user%>
 	           			<% if @user == current_user %>
-		    				<a class="icon"><%= link_to "部位を追加する", new_part_path %><i class="fas fa-plus-circle"></i></a>
+		    				<a class="icon"><%= link_to "種目を追加する", new_part_path %><i class="fas fa-plus-circle"></i></a>
 		    			<% end %>
 		    		</div>
 	        	</div>
 	        </div>
 	    </div>
     </div>
+    <div class="row justify-content-center">
+    <%= month_calendar events: @muscles do |date, muscles|%>
+    	<%= date.day %>
+	    <% muscles.each do |part| %>
+	    <div>
+	    	<%= part.id %>
+	    </div>
+	    <% end %>
+    <% end %>
+	</div>
 </div>

@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
     if model == 'user'
       User.where(name: content)
     elsif model == 'muscle'
-      Muscle.where(genre: content)
+      Muscle.where(work_tag: content)
     end
   end
 
@@ -21,7 +21,7 @@ class SearchesController < ApplicationController
     if model == 'user'
       User.where("name LIKE ?", "#{content}%")
     elsif model == 'muscle'
-      Muscle.where("genre LIKE ?", "#{content}%")
+      Muscle.where("work_tag LIKE ?", "#{content}%")
     end
   end
 
@@ -29,7 +29,7 @@ class SearchesController < ApplicationController
     if model == 'user'
       User.where("name LIKE ?", "%#{content}")
     elsif model == 'muscle'
-      Muscle.where("genre LIKE ?", "%#{content}")
+      Muscle.where("work_tag LIKE ?", "%#{content}")
     end
   end
 
@@ -37,7 +37,7 @@ class SearchesController < ApplicationController
     if model == 'user'
       User.where("name LIKE ?", "%#{content}%")
     elsif model == 'muscle'
-      Muscle.where("genre LIKE ?", "%#{content}%")
+      Muscle.where("work_tag LIKE ?", "%#{content}%")
     end
   end
 

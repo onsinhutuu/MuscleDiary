@@ -10,6 +10,7 @@
 			<% @part.each do |part| %>
 				<tr>
 					<td><%= link_to "#{ part.name }",workout_muscle_path(part.id) %></td>
+					<td> <%= link_to "削除する", big_path(part.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
 				</tr>
 			<% end %>
 		</table>

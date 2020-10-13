@@ -25,9 +25,10 @@ class MusclesController < ApplicationController
   def edit
      @muscle = Muscle.find(params[:id])
      @user = current_user
+    @part = @muscle.part
      if @muscle.user == current_user
      else
-      redirect_to muscles_path
+        redirect_to muscles_path
      end
   end
 
@@ -52,6 +53,7 @@ class MusclesController < ApplicationController
     @muscle.user_id = current_user.id
     if @muscle.save
     redirect_to muscle_path(@muscle)
+    flash[:notice] = "筋トレよく頑張った🔥"
     else
       redirect_to request.referer
       flash[:notice] = "全て記入してから投稿して下さい"

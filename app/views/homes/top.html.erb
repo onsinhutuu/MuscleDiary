@@ -1,3 +1,7 @@
+<% content_for(:body_attributes) do %>
+    data-turbolinks="false"
+<% end %>
+
 <section id="top">
     <div class="top-title">
         <h1>MuscleDiary</h1>
@@ -13,52 +17,12 @@
         <a class="btn-gradient-radius" href="/users/sign_up">いますぐ新規登録</a>
     </div>
 </section>
-<section id="intro">
-    <div class="container-fluid">
-        <h2 class="intro-title pb-3">機能</h2>
-        <div class="row pb-5">
-            <div class="col-lg-6">
-                <div class="intro-box">
-                    <div class="intro-row">
-                        <div class="intro-box-count">1.</div>
-                        <div class="intro-box-title"><span class="marker">投稿</span></div>
-                    </div>
-                    <div class="intro-box-txt">筋トレに関して投稿でき、他のユーザーの投稿も閲覧できます。
-                    また、投稿をタグ付けできるようにしています。</div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="intro-box">
-                    <div class="intro-row">
-                        <div class="intro-box-count">2.</div>
-                        <div class="intro-box-title"><span class="marker">部位選択</span></div>
-                    </div>
-                    <div class="intro-box-txt">マイページで筋トレの部位を追加でき、投稿の際に部位を選択することで、どこの部位を鍛えたか記録に残すことができます。</div>
-                </div>
-            </div>
-        </div>
-        <div class="row pb-5">
-            <div class="col-lg-6">
-                <div class="intro-box">
-                    <div class="intro-row">
-                        <div class="intro-box-count">3.</div>
-                        <div class="intro-box-title"><span class="marker">フォロー</span></div>
-                    </div>
-                    <div class="intro-box-txt">他のユーザーをフォローでき、「Friend's Work Out」ページでフォローしているユーザーのみを一覧で表示するようにしています。
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="intro-box">
-                    <div class="intro-row">
-                        <div class="intro-box-count">4.</div>
-                        <div class="intro-box-title"><span class="marker">検索機能</span></div>
-                    </div>
-                    <div class="intro-box-txt">マイページで過去の投稿を検索でき、自分の記録を確認することができます。さらに、円グラフで自分がよく行う種目を確認できます。
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<div class="previews">
+    <div class="slider">
+      <%= image_tag 'img-01' %>
+      <%= image_tag 'img-02' %>
+      <%= image_tag 'img-03' %>
     </div>
-</section>
+</div>
 </section>
