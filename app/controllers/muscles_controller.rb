@@ -68,6 +68,6 @@ class MusclesController < ApplicationController
 
   private
     def muscle_params
-        params.require(:muscle).permit(:memo, :set_count, :weight, :rep, :part_id, :work_tag)
+        params.require(:muscle).permit(:memo, :set_count, :weight, :rep, :part_id, :work_tag, :start_time)
     end
 end

@@ -1,22 +1,34 @@
 <div class="container fluid">
-	<div class="row justify-content-center border-part">
-		<%= form_with model: @part, local: true do |f| %>
-		<div class="col-4 mt-5 align-self-center text-left">
+	<div class="row justify-content-center">
+		<a class="btn-gradient-radius-part mt-3">部位のリンクを押して本日のトレーニングを公開しましょう！</a>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-8 my3 border">
+			<div class="row justify-content-center border-part">
+			部位一覧)
+					<% @bigs.each.with_index(1) do |big, index| %>
+						<tr>
+							<th><button type="button" class="btn btn-light"><%= index %></th>
+							<td><%= link_to big.name, big_path(big.id) %></td></button>
+						</tr>
+					<% end %>
+			</div>
+			<div class="row justify-content-center">
+				<a class="btn-gradient-radius-part mt-3">部位を選んで種目を追加しましょう！</a>
+			</div>
+			<div class="row justify-content-center mt-3">
+				<%= form_with model: @part, local: true do |f| %>
+				<div class="col">
 				<%= f.label :name, "部位" %>
 				<%= f.collection_select :big_id, Big.all, :id, :name, :include_blank => "選択してください" %>
-			<%= f.label :name, "種目" %>
-			<%= f.text_area :name, placeholder: "懸垂"  %>
-			<%= f.submit "追加", class: "btn btn-danger" %>
-		</div>
-		<% end %>
-		<div class="col-6 mt-5 align-self-center">
-		部位一覧)
-				<% @bigs.each.with_index(1) do |big, index| %>
-					<tr>
-						<th><%= index %>:</th>
-						<td><%= link_to big.name, big_path(big.id) %></td>
-					</tr>
+				</div>
+				<div class="col">
+					<%= f.label :name, "種目" %>
+					<%= f.text_area :name, placeholder: "例）懸垂"  %>
+					<%= f.submit "種目を追加", class: "btn btn-danger" %>
+				</div>
 				<% end %>
+			</div>
 		</div>
 	</div>
 	<div class="row justify-content-center border-bottom">

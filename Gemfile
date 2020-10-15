@@ -77,6 +77,8 @@ gem 'font-awesome-sass'
 gem 'groupdate'
 gem 'dotenv-rails'
 gem 'simple_calendar', '~> 2.0'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
 group :production do
   gem 'mysql2'
 end

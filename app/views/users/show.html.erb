@@ -27,13 +27,14 @@
 	        </div>
 	    </div>
     </div>
+    <% if @user == current_user %>
     <%= month_calendar events: @muscles do |date, muscles|%>
     	<%= date.day %>
-
 	    <% muscles.each do |muscle| %>
 	    <div>
 	    	<%= link_to "#{ muscle.part.name }",muscle_path(muscle.id) %>
 	    </div>
 	    <% end %>
+    <% end %>
     <% end %>
 </div>
