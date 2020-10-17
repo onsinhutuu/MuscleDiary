@@ -188,6 +188,7 @@ input[type="email"] {
     background-color: #fff;
     border-radius: 15px;
     z-index: 20;
+    margin-bottom: 50px;
 }
 .intro-row {
 	display: flex;
@@ -233,6 +234,7 @@ input[type="email"] {
 i {
 	font-size: 30px;
 }
+/*muscle/showページ*/
 .icon {
 	margin-top: 10px;
 	margin-left: 20px;
@@ -252,6 +254,62 @@ i {
 	text-align: center;
 }
 
-
+/*topページのjs*/
 .load-up{opacity: 0; transform: translateY(200px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
 .load-up.done, .load-fade.done{opacity : 1; transform : translate(0, 0);}
+/*レスポンシブ 対応*/
+@media screen and (max-width:768px) {
+  	input[type="text"] {
+        width: 300px;
+        height: 20px;
+    }
+	input[type="password"] {
+        width: 300px;
+        height: 20px;
+    }
+	input[type="email"] {
+        width: 300px;
+        height: 20px;
+    }
+    .navbar {
+	 	height:200px;
+	 	margin-bottom: 80px;
+	}
+	.fa-arrow-alt-circle-left {
+	    top: 150px;
+	    font-size: 30px;
+	}
+	.fa-arrow-alt-circle-right {
+	    top: 150px;
+	    font-size: 30px;
+	}
+}
+@media screen and (max-width:425px) {
+  	input[type="text"] {
+        width: 150px;
+        height: 20px;
+    }
+	input[type="password"] {
+        width: 150px;
+        height: 20px;
+    }
+	input[type="email"] {
+        width: 150px;
+        height: 20px;
+    }
+    .navbar {
+	 	height:200px;
+	 	margin-bottom: 150px;
+	}
+    .top-title{
+    font-size: 50px;
+	}
+	.fa-arrow-alt-circle-left {
+	    top: 70px;
+	    font-size: 20px;
+	}
+	.fa-arrow-alt-circle-right {
+	    top: 70px;
+	    font-size: 20px;
+	}
+}
