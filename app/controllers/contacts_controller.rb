@@ -8,13 +8,12 @@ class ContactsController < ApplicationController
 	        @contact = Contact.new(contact_params)
 	        @contact.user_id = current_user.id
         if @contact.save
-            redirect_to root_path
+            redirect_to muscles_path
+            flash[:notice] = 'お問い合わせを送信しました。'
         else
-            @contacts = Contact.all
-            @users = User.all
-            render :new
+            redirect_to request.referer
+            flash[:notice] = '全て入力して下さい'
         end
-        	flash[:success] = 'お問い合わせを送信しました。'
   	end
 
     private

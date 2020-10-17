@@ -2,7 +2,6 @@ class PartsController < ApplicationController
   before_action :authenticate_user!
   def new
   	@part = Part.new
-    @parts = current_user.parts
     @bigs = Big.all
   end
 

@@ -6,6 +6,7 @@ class User < ApplicationRecord
   attachment :image
   has_many :muscles, dependent: :destroy
   has_many :parts, dependent: :destroy
+  has_many :bigs, through: :parts
   has_many :favorites, dependent: :destroy
   has_many :muscle_comments, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
