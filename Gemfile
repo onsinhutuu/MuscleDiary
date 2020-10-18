@@ -79,6 +79,10 @@ gem 'dotenv-rails'
 gem 'simple_calendar', '~> 2.0'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano3-puma'
+gem 'capistrano-rbenv'
 group :production do
   gem 'mysql2'
 end
