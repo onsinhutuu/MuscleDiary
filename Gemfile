@@ -35,16 +35,16 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem "chartkick"
+gem 'chartkick'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -59,30 +59,33 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'bootstrap', '~> 4.1.1'
 gem 'devise'
 gem 'devise-i18n'
-gem 'devise-i18n-views'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
-gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 
-gem 'pry-rails'
-gem 'rails-i18n', '~> 5.1'
+gem 'capistrano'
+gem 'capistrano3-puma'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv'
+gem 'dotenv-rails'
+gem 'factory_bot_rails'
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
 gem 'groupdate'
-gem 'dotenv-rails'
-gem 'simple_calendar', '~> 2.0'
+gem 'pry-rails'
+gem 'rails-i18n', '~> 5.1'
 gem 'rspec-rails'
-gem 'factory_bot_rails'
-gem 'capistrano'
-gem 'capistrano-rails'
-gem 'capistrano3-puma'
-gem 'capistrano-rbenv'
+gem 'simple_calendar', '~> 2.0'
+group :development do
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+end
 group :production do
   gem 'mysql2'
 end

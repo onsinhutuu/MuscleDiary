@@ -1,46 +1,46 @@
 <div class="container">
 	<div class="row justify-content-center">
-	<h1><%= @part.name %>の投稿</h1>
-	<h2 class="btn-gradient-radius-part mt-3">・タグは#をつけて下さい</h2>
-	<h2 class="btn-gradient-radius-part mt-3">・タグは必須入力ではありません</h2>
+		<h1><%= @part.name %>の投稿</h1>
+		<h2 class="btn-gradient-radius-part mt-3">・タグは#をつけて下さい</h2>
+		<h2 class="btn-gradient-radius-part mt-3">・タグは必須入力ではありません</h2>
 	</div>
 	<%= render "users/shared/error_messages", resource: @muscle %>
 	<%= form_with model: @muscle, local: true do |f| %>
 	<div class="row justify-content-center">
-			<div class="field">
-				<%= f.label :start_time, "日付" %>
-				<%= f.date_field :start_time %>
-			</div>
+		<div class="field">
+			<%= f.label :start_time, "日付" %>
+			<%= f.date_field :start_time %>
+		</div>
 	</div>
 	<div class="row justify-content-center">
-			<div class="field">
-				<%= f.label :weight, "重量" %>
-				<%= f.text_field :weight, placeholder: "100kg"%>
-			</div>
+		<div class="field">
+			<%= f.label :weight, "重量" %>
+			<%= f.text_field :weight, placeholder: "100kg"%>
+		</div>
 	</div>
 	<div class="row justify-content-center">
-			<div class="field">
-			    <%= f.label :rep, "回数" %>
-			    <%= f.text_field :rep, placeholder: "10rep"%>
-			</div>
+		<div class="field">
+	    <%= f.label :rep, "回数" %>
+	    <%= f.text_field :rep, placeholder: "10rep"%>
+		</div>
 	</div>
 	<div class="row justify-content-center">
-			<div class="field-set">
-			    <%= f.label :set_count, "セット数" %>
-			    <%= f.text_field :set_count, placeholder: "３セット"%>
-			</div>
+		<div class="field-set">
+	    <%= f.label :set_count, "セット数" %>
+	    <%= f.text_field :set_count, placeholder: "３セット"%>
+		</div>
 	</div>
 	<div class="row justify-content-center">
-			<div class="field">
-			   <%= f.label :memo, "メモ" %>
-			   <%= f.text_field :memo %>
-			</div>
+		<div class="field">
+		  <%= f.label :memo, "メモ" %>
+		  <%= f.text_field :memo %>
+		</div>
 	</div>
 	<div class="row justify-content-center">
-			<div class="field">
-			   <%= f.label :work_tag, "タグ" %>
-			   <%= f.text_field :work_tag, placeholder: "#を先頭につけて下さい　例：#今日の筋トレ" %>
-			</div>
+		<div class="field">
+		  <%= f.label :work_tag, "タグ" %>
+		  <%= f.text_field :work_tag, placeholder: "#を先頭につけて下さい　例：#今日の筋トレ" %>
+		</div>
 	</div>
 	<div class="row justify-content-center">
 			<%= f.hidden_field :part_id, :value => @part.id %>

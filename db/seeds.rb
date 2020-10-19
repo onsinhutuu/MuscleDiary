@@ -6,28 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(
-	email: 'test@test.com',
-	password: 'testtest'
-	)
+  email: 'test@test.com',
+  password: 'testtest'
+)
 Big.create!(
   [
     {
-      name: '背中',
+      name: '背中'
     },
     {
-      name: '胸',
+      name: '胸'
     },
     {
-      name: '脚',
+      name: '脚'
     },
     {
-      name: '肩',
+      name: '肩'
     },
     {
-      name: '上腕二頭筋',
+      name: '上腕二頭筋'
     },
     {
-      name: '上腕三頭筋',
+      name: '上腕三頭筋'
     }
   ]
 )

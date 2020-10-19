@@ -1,0 +1,25 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.5.7 #Rubyのバージョン指定
+  Exclude: #除外するファイルをここで指定
+    - 'config.ru'
+    - 'bin/**'
+    - 'lib/**'
+    - 'db/**/*'
+    - 'config/**/*'
+
+AsciiComments: #日本語手のコメントを許可する
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+ClassAndModuleChildren: #モジュール名::クラス名の定義を許可する
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

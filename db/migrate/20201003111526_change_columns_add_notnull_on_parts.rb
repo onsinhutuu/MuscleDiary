@@ -1,5 +1,5 @@
 class ChangeColumnsAddNotnullOnParts < ActiveRecord::Migration[5.2]
   def change
-  	change_column_null :parts, :name, false
+    change_column_null :parts, :name, false
   end
 end

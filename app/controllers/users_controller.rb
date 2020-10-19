@@ -22,15 +22,14 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-       flash[:success] = "登録情報を更新しました"
-       redirect_to user_path(@user)
+      flash[:success] = '登録情報を更新しました'
+      redirect_to user_path(@user)
     else
-       render "edit"
+      render 'edit'
     end
   end
 
-  def unsubscribe
-  end
+  def unsubscribe; end
 
   def withdraw
     @user = current_user
@@ -45,5 +44,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :is_deleted, :image)
   end
-
 end

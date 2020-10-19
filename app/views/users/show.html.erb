@@ -3,38 +3,36 @@
 	<div class="row justify-content-center">
 		<div class="col-8 border">
 			<div class="row border-bottom">
-					<div class="col-4 text-center mt-4">
-						<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100', class: "img-circle" %><%= @user.name %>
-					</div>
-					<% if @user == current_user %>
-					<div class="col-4 text-center mt-5">
-						<a class="icon"><%= link_to "編集する", edit_user_path(@user) %><i class="fas fa-user-edit"></i></a>
-					</div>
-					<div class="col-4 text-center mt-5">
-	           			<a class="icon"><%= link_to "パスワードを変更する", edit_user_registration_path(@user) %><i class="fas fa-user-cog"></i></a>
-					</div>
-					<% end %>
+				<div class="col-4 text-center mt-4">
+					<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100', class: "img-circle" %><%= @user.name %>
+				</div>
+				<% if @user == current_user %>
+				<div class="col-4 text-center mt-5">
+					<a class="icon"><%= link_to "編集する", edit_user_path(@user) %><i class="fas fa-user-edit"></i></a>
+				</div>
+				<div class="col-4 text-center mt-5">
+     			<a class="icon"><%= link_to "パスワードを変更する", edit_user_registration_path(@user) %><i class="fas fa-user-cog"></i></a>
+				</div>
+				<% end %>
 			</div>
 			<div class="row my-3">
 				<div class="col text-center">
 					<div class="user_<%= @user.id %>">
-	           			<%= render 'users/follow', user: @user%>
-	           			<% if @user == current_user %>
-		    				<a class="icon"><%= link_to "種目を追加する", new_part_path %><i class="fas fa-plus-circle"></i></a>
-		    			<% end %>
-		    		</div>
-	        	</div>
-	        </div>
+       			<%= render 'users/follow', user: @user%>
+       			<% if @user == current_user %>
+		  				<a class="icon"><%= link_to "種目を追加する", new_part_path %><i class="fas fa-plus-circle"></i></a>
+		  			<% end %>
+		    	</div>
+	      </div>
 	    </div>
     </div>
+  </div>
+</div>
     <% if @user == current_user %>
     <%= month_calendar events: @muscles do |date, muscles|%>
     	<%= date.day %>
 	    <% muscles.each do |muscle| %>
-	    <div>
 	    	<%= link_to "#{ muscle.part.name }",muscle_path(muscle.id) %>
-	    </div>
 	    <% end %>
     <% end %>
     <% end %>
-</div>

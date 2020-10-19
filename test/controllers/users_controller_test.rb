@@ -1,29 +1,28 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get show" do
+  test 'should get show' do
     get users_show_url
     assert_response :success
   end
 
-  test "should get follows" do
+  test 'should get follows' do
     get users_follows_url
     assert_response :success
   end
 
-  test "should get follower" do
+  test 'should get follower' do
     get users_follower_url
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get users_edit_url
     assert_response :success
   end
 
-  test "should get unsubscribe" do
+  test 'should get unsubscribe' do
     get users_unsubscribe_url
     assert_response :success
   end
-
 end

@@ -6,12 +6,12 @@
 		<div class="col-8 my3 border">
 			<div class="row justify-content-center border-part">
 			部位一覧)
-					<% @bigs.each.with_index(1) do |big, index| %>
-						<tr>
-							<th><button type="button" class="btn btn-light"><%= index %></th>
-							<td><%= link_to big.name, big_path(big.id) %></td></button>
-						</tr>
-					<% end %>
+				<% @bigs.each.with_index(1) do |big, index| %>
+					<tr>
+						<th><button type="button" class="btn btn-light"><%= index %></th>
+						<td><%= link_to big.name, big_path(big.id) %></td></button>
+					</tr>
+				<% end %>
 			</div>
 			<div class="row justify-content-center">
 				<a class="btn-gradient-radius-part mt-3">部位を選んで種目を追加しましょう！</a>

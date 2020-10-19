@@ -1,9 +1,9 @@
 class SearchesController < ApplicationController
   before_action :authenticate_user!
   def search
-  	@model = params["search"]["model"]
-    @content = params["search"]["content"]
-    @how = params["search"]["how"]
+    @model = params['search']['model']
+    @content = params['search']['content']
+    @how = params['search']['how']
     @datas = search_for(@how, @model, @content)
   end
 
@@ -19,25 +19,25 @@ class SearchesController < ApplicationController
 
   def forward(model, content)
     if model == 'user'
-      User.where("name LIKE ?", "#{content}%")
+      User.where('name LIKE ?', "#{content}%")
     elsif model == 'muscle'
-      Muscle.where("work_tag LIKE ?", "#{content}%")
+      Muscle.where('work_tag LIKE ?', "#{content}%")
     end
   end
 
   def backward(model, content)
     if model == 'user'
-      User.where("name LIKE ?", "%#{content}")
+      User.where('name LIKE ?', "%#{content}")
     elsif model == 'muscle'
-      Muscle.where("work_tag LIKE ?", "%#{content}")
+      Muscle.where('work_tag LIKE ?', "%#{content}")
     end
   end
 
   def partical(model, content)
     if model == 'user'
-      User.where("name LIKE ?", "%#{content}%")
+      User.where('name LIKE ?', "%#{content}%")
     elsif model == 'muscle'
-      Muscle.where("work_tag LIKE ?", "%#{content}%")
+      Muscle.where('work_tag LIKE ?', "%#{content}%")
     end
   end
 
