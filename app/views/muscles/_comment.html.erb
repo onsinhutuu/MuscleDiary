@@ -14,7 +14,9 @@
       </div>
       <div class="comment-entry"><%= muscle_comment.comment %>
       </div>
+      <% if @muscle.user == current_user %>
       <%= link_to "コメントを消す", muscle_muscle_comment_path(muscle_comment.muscle, muscle_comment), method: :delete, remote: true %>
+      <% end %>
     </div>
   </div>
 <% end %>
