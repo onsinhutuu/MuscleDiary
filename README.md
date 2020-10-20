@@ -27,3 +27,4 @@ https://docs.google.com/spreadsheets/d/1QBqRCZ2zcEQLmxV8ke_tsnEsL8e4jqQcAbd8-Y33
 - 仮想環境：Vagrant,VirtualBox
 
 ## 使用素材
+https://www.pexels.com/photo/man-holding-barbell-1431282/

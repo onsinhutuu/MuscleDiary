@@ -1,26 +1,38 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  it '名前とメールアドレスとパスワードがあれば登録できる' do
-    expect(FactoryBot.create(:user)).to be_valid
+RSpec.describe 'Userモデルのテスト', type: :model do
+  describe 'バリデーションのテスト' do
+    subject { user.valid? }
+    context 'nameカラム' do
+      let(:user) { create(:user) }
+      it '空欄ではないこと' do
+        user.name = ''
+        is_expected.to eq false;
+      end
+      it '2文字以上であること' do
+        user.name = Faker::Lorem.characters(number:1)
+        is_expected.to eq false;
+      end
+      it '20文字以下であること' do
+        user.name = Faker::Lorem.characters(number:21)
+        is_expected.to eq false;
+      end
+    end
+
+    context 'emailカラム' do
+      let(:user) { create(:user) }
+      it '空欄ではないこと' do
+        user.email = ''
+        is_expected.to eq false;
+      end
+    end
   end
-  it '名前がなければ登録できない' do
-    expect(FactoryBot.build(:user, name: '')).to_not be_valid
+  describe 'アソシエーションのテスト' do
+    context 'Muscleモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:muscles).macro).to eq :has_many
+      end
+    end
   end
 
-  it 'メールアドレスがなければ登録できない' do
-    expect(FactoryBot.build(:user, email: '')).to_not be_valid
-  end
-
-  it 'メールアドレスが重複していたら登録できない' do
-    user1 = FactoryBot.create(:user, name: 'taro', email: 'taro@example.com')
-    expect(FactoryBot.build(:user, name: 'ziro', email: user1.email)).to_not be_valid
-  end
-  it 'パスワードがなければ登録できない' do
-    expect(FactoryBot.build(:user, password: '')).to_not be_valid
-  end
-
-  it 'password_confirmationとpasswordが異なる場合保存できない' do
-    expect(FactoryBot.build(:user, password: 'password', password_confirmation: 'passward')).to_not be_valid
-  end
 end

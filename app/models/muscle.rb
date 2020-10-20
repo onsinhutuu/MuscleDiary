@@ -5,10 +5,10 @@ class Muscle < ApplicationRecord
   has_many :muscle_comments, dependent: :destroy
   has_many :muscle_tags, dependent: :destroy
   has_many :tags, through: :muscle_tags
-  validates :weight, presence: true
-  validates :set_count, presence: true
+  validates :weight, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
+  validates :set_count, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validates :memo, presence: true
-  validates :rep, presence: true
+  validates :rep, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'bigs/show'
   root 'homes#top'
   get 'homes/top' => 'homes#top'
   get 'homes/about' => 'homes#about'
