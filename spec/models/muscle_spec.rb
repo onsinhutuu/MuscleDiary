@@ -8,11 +8,11 @@ RSpec.describe 'Muscleモデルのテスト', type: :model do
     context 'weightカラム' do
       it '空欄でないこと' do
         muscle.weight = ''
-        expect(muscle.valid?).to eq false;
+        expect(muscle.valid?).to eq false
       end
       it '整数である' do
-        muscle.weight =  "1.1"
-        expect(muscle.valid?).to eq false;
+        muscle.weight = '1.1'
+        expect(muscle.valid?).to eq false
       end
     end
   end

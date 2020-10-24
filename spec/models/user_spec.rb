@@ -7,15 +7,15 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       let(:user) { create(:user) }
       it '空欄ではないこと' do
         user.name = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
       it '2文字以上であること' do
-        user.name = Faker::Lorem.characters(number:1)
-        is_expected.to eq false;
+        user.name = Faker::Lorem.characters(number: 1)
+        is_expected.to eq false
       end
       it '20文字以下であること' do
-        user.name = Faker::Lorem.characters(number:21)
-        is_expected.to eq false;
+        user.name = Faker::Lorem.characters(number: 21)
+        is_expected.to eq false
       end
     end
 
@@ -23,7 +23,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       let(:user) { create(:user) }
       it '空欄ではないこと' do
         user.email = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
     end
   end
@@ -34,5 +34,4 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       end
     end
   end
-
 end

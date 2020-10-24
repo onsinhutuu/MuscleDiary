@@ -7,7 +7,7 @@ RSpec.describe 'Partモデルのテスト', type: :model do
     context 'nameカラム' do
       it '空欄でないこと' do
         part.name = ''
-        expect(part.valid?).to eq false;
+        expect(part.valid?).to eq false
       end
     end
   end

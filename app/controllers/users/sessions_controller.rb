@@ -10,6 +10,12 @@ class Users::SessionsController < Devise::SessionsController
     root_path
   end
 
+  def new_guest
+    user = User.guest
+    sign_in user
+    redirect_to muscles_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   protected
 
   def reject_user

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
              }
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   namespace :admins do
     resources :contacts, only: %i[index edit update destroy]
