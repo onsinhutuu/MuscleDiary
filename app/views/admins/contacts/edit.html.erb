@@ -1,20 +1,39 @@
 <div class="container">
-    <div class="row  justify-content-center">
-        <h2>お問い合わせ内容</h2>
+    <div class="row  justify-content-center mt-5">
+        <h2>お問い合わせ詳細</h2>
+    </div>
+  <div class="row  justify-content-center mt-3">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>ユーザー名</th>
+          <th>問い合わせタイトル</th>
+          <th>受信日</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td><%= @contact.user.name %></td>
+        <td><%= @contact.title %></td>
+        <td><%= @contact.created_at.strftime("%Y年%m月%d日 ") %></td>
+      </tbody>
+    </table>
+  </div>
+  <div class="row  justify-content-center mt-5">
+    <h3>問い合わせ内容</h3>
+  </div>
+  <div class="row  justify-content-center mt-3">
+    <%= @contact.body %>
+  </div>
+  <%= form_for @contact, url: admins_contact_path do |f| %>
+    <div class="row  justify-content-center mt-5">
+      <h3>返信</h3>
     </div>
     <div class="row  justify-content-center">
-        <%= form_for @contact, url: admins_contact_path do |f| %>
-            <h3>顧客名</h3>
-            <%= @contact.user.name %>さん
-            <h3>問い合わせ日</h3>
-            <%= @contact.created_at.strftime("%Y年%m月%d日 ") %>
-            <h3>タイトル</h3>
-            <%= @contact.title %>
-            <h3>問い合わせ内容</h3>
-            <%= @contact.body %>
-            <h3>返信</h3>
-            <%= f.text_field :reply, class:"form-control", placeholder: "返信内容" %>
-            <%= f.submit "送信" %>
-        <% end %>
+      <%= f.text_field :reply, class:"form-control", placeholder: "返信内容" %>
     </div>
+  <div class="row  justify-content-center">
+      <%= f.submit "送信", class: "btn btn-primary w-25 mt-3" %>
+  </div>
+  <% end %>
+  </div>
 </div>

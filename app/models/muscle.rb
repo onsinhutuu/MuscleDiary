@@ -12,6 +12,13 @@ class Muscle < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  def belongs_to_current_user?(current_user)
+    user == current_user
+  end
+
+  def self.match_with_worktag(content)
+    where(work_tag:content)
+  end
 
   after_create do
     # 1.controller側でcreateしたmuscleを取得

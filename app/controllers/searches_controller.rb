@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
     if model == 'user'
       User.where(name: content)
     elsif model == 'muscle'
-      Muscle.where(work_tag: content)
+      Muscle.match_with_worktag(content)
     end
   end
 

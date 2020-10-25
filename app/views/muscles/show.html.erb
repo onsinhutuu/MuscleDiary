@@ -45,7 +45,7 @@
           <h5 style="font-weight: bold;"><i class="fas fa-tag"></i> タグ</h5>
           <%= render_with_hashtags(@muscle.work_tag) %>
           <hr>
-          <% if @muscle.user == current_user %>
+          <% if @muscle.belongs_to_current_user?(current_user) %>
             <%= link_to "編集する", edit_muscle_path(@muscle), class: "btn btn-success" %>
             <%= link_to "削除する",muscle_path(@muscle), method: :delete, "data-confirm" => "本当に消しますか？",  class: "btn btn-dark"%>
             <%= link_to "ALL WORKOUTへ", muscles_path, class: "btn btn-danger" %>

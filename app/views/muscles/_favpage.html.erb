@@ -1,11 +1,11 @@
 <% if muscle.favorited_by?(current_user) %>
-    <%= link_to muscle_favorites_path(muscle), method: :delete, remote: true do %>
-    <i class="fas fa-thumbs-up"></i>
-    <%= muscle.favorites.count %>
-    <% end %>
+  <%= link_to muscle_favorites_path(muscle), method: :delete, remote: true do %>
+  <i class="fas fa-thumbs-up"></i>
+  <%= muscle.favorites.count %>
+  <% end %>
 <% else %>
-    <%= link_to muscle_favorites_path(muscle), method: :post, remote: true do  %>
-    <i class="far fa-thumbs-up"></i>
-    <%= muscle.favorites.count %>
-    <% end %>
+  <%= link_to muscle_favorites_path(muscle), method: :post, remote: true do  %>
+  <i class="far fa-thumbs-up"></i>
+  <%= muscle.favorites.count %>
+  <% end %>
 <% end %>
