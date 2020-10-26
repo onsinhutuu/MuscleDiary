@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="row justify-content-center">
+<div class="row justify-content-center">
   	<h1>登録情報編集</h1>
       <%= render "users/shared/error_messages", resource: @user %>
   </div>
@@ -40,21 +39,5 @@
       </div>
 	  </div>
 	<% end %>
-	</div>
 </div>
-
-<script>
-$(function(){
-    // inputのidから情報の取得
-    $('#user_image').on('change', function (e) {
-// ここから既存の画像のurlの取得
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        $(".image").attr('src', e.target.result);
-    }
-// ここまで
-    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
-});
-});
-
-</script>
+<script type="text/javascript" src="application.js"></script>

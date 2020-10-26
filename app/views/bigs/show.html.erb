@@ -1,18 +1,16 @@
-<div class="container fluid">
-	<div class="row justify-content-center">
-		<h1><%= @big.name %></h1>
-	</div>
-	<div class="row justify-content-center">
-		<%= link_to 'TODAY WORKOUTへ戻る', new_part_path %>
-	</div>
-	<div class="row justify-content-center text-center">
-		<table class="table table-bordered">
-			<% @part.each do |part| %>
-				<tr>
-					<td><%= link_to "#{ part.name }",workout_muscle_path(part.id) %></td>
-					<td> <%= link_to "削除する", big_path(part.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
+<div class="row justify-content-center">
+	<h1><%= @big.name %></h1>
+</div>
+<div class="row justify-content-center">
+	<%= link_to 'TODAY WORKOUTへ戻る', new_part_path %>
+</div>
+<div class="row justify-content-center text-center">
+	<table class="table table-bordered">
+		<% @part.each do |part| %>
+			<tr>
+				<td><%= link_to "#{ part.name }",workout_muscle_path(part.id) %></td>
+				<td> <%= link_to "削除する", big_path(part.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+			</tr>
+		<% end %>
+	</table>
 </div>

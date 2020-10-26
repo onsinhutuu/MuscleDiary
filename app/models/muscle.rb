@@ -12,6 +12,7 @@ class Muscle < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
   def belongs_to_current_user?(current_user)
     user == current_user
   end
@@ -23,7 +24,7 @@ class Muscle < ApplicationRecord
   after_create do
     # 1.controller側でcreateしたmuscleを取得
     muscle = Muscle.find_by(id: id)
-    # 2.正規表現を用いて、muscleのmemo内から『#○○○』の文字列を検出
+    # 2.正規表現を用いて、muscleのwork_tag内から『#○○○』の文字列を検出
     tags = work_tag.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     # 3.mapメソッドでtags配列の要素一つ一つを取り出して、先頭の#を取り除いてDBへ保存する
     tags.uniq.map do |t|

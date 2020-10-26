@@ -25,7 +25,7 @@ $(function(){
         scroll_effect();
     });
 });
- 
+
 //ふわっとロード
 function load_effect(){
     var tt = $(window).scrollTop();
@@ -43,3 +43,16 @@ function load_effect(){
         }
     });
 }
+
+$(function(){
+    // inputのidから情報の取得
+    $('#user_image').on('change', function (e) {
+// ここから既存の画像のurlの取得
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $(".image").attr('src', e.target.result);
+    }
+// ここまで
+    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+});
+});

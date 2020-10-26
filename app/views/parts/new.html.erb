@@ -1,66 +1,64 @@
-<div class="container fluid">
-	<div class="row justify-content-center">
-		<a class="btn-gradient-radius-part mt-3">部位のリンクを押して本日のトレーニングを公開しましょう！</a>
-	</div>
-	<div class="row justify-content-center">
-		<div class="col-8 my3 border">
-			<div class="row justify-content-center border-part">
-			部位一覧)
-				<% @bigs.each.with_index(1) do |big, index| %>
-					<tr>
-						<th><button type="button" class="btn btn-light"><%= index %></th>
-						<td><%= link_to big.name, big_path(big.id) %></td></button>
-					</tr>
-				<% end %>
+<div class="row justify-content-center">
+	<a class="btn-gradient-radius-part mt-3">部位のリンクを押して本日のトレーニングを公開しましょう！</a>
+</div>
+<div class="row justify-content-center">
+	<div class="col-8 my3 border">
+		<div class="row justify-content-center border-part">
+		部位一覧)
+			<% @bigs.each.with_index(1) do |big, index| %>
+				<tr>
+					<th><button type="button" class="btn btn-light"><%= index %></th>
+					<td><%= link_to big.name, big_path(big.id) %></td></button>
+				</tr>
+			<% end %>
+		</div>
+		<div class="row justify-content-center">
+			<a class="btn-gradient-radius-part mt-3">部位を選んで種目を追加しましょう！</a>
+		</div>
+		<div class="row justify-content-center mt-3">
+			<%= form_with model: @part, local: true do |f| %>
+			<div class="col">
+			<%= f.label :name, "部位" %>
+			<%= f.collection_select :big_id, Big.all, :id, :name, :include_blank => "選択してください" %>
 			</div>
-			<div class="row justify-content-center">
-				<a class="btn-gradient-radius-part mt-3">部位を選んで種目を追加しましょう！</a>
+			<div class="col">
+				<%= f.label :name, "種目" %>
+				<%= f.text_area :name, placeholder: "例）懸垂"  %>
+				<%= f.submit "種目を追加", class: "btn btn-danger" %>
 			</div>
-			<div class="row justify-content-center mt-3">
-				<%= form_with model: @part, local: true do |f| %>
-				<div class="col">
-				<%= f.label :name, "部位" %>
-				<%= f.collection_select :big_id, Big.all, :id, :name, :include_blank => "選択してください" %>
-				</div>
-				<div class="col">
-					<%= f.label :name, "種目" %>
-					<%= f.text_area :name, placeholder: "例）懸垂"  %>
-					<%= f.submit "種目を追加", class: "btn btn-danger" %>
-				</div>
-				<% end %>
-			</div>
+			<% end %>
 		</div>
 	</div>
-	<div class="row justify-content-center border-bottom">
-		<div class="col-4 mt-5 align-self-center text-left">
-			トレーニングメニュー例　(胸重視）<br>
-				月：胸＋腕（上腕三頭筋）<br>
-				火：背中＋腕（上腕二頭筋）<br>
-				水：休み<br>
-				木：肩＋腕（上腕三頭筋）<br>
-				金：脚＋腕（上腕二頭筋）<br>
-				土：胸＋腕（上腕三頭筋）<br>
-				日：休み
-		</div>
-		<div class="col-4 mt-5 align-self-center text-left">
-			トレーニングメニュー例（おすすめ！）<br>
-				月：胸＋ 肩(フロント）+ 腕（上腕三頭筋）<br>
-				火：背中＋ 肩(リア）+ 腕（上腕二頭筋）<br>
-				水：脚＋ 肩(サイド）<br>
-				木：休み<br>
-				金：胸＋ 肩(フロント）+ 腕（上腕三頭筋）<br>
-				土：背中＋ 肩(リア）+ 腕（上腕二頭筋）<br>
-				日：脚＋ 肩(サイド）<br>
-		</div>
-		<div class="col-4 mt-5 align-self-center text-left">
-			トレーニングメニュー例（肩重視）<br>
-				月：胸+腹筋<br>
-				火：肩＋腕（上腕三頭筋）<br>
-				水：背中＋腕（上腕二頭筋)<br>
-				木：休み<br>
-				金：脚＋腕（上腕二頭筋）<br>
-				土：肩＋腕（上腕三頭筋）<br>
-				日：休み
-		</div>
+</div>
+<div class="row justify-content-center border-bottom">
+	<div class="col-4 mt-5 align-self-center text-left">
+		トレーニングメニュー例　(胸重視）<br>
+			月：胸＋腕（上腕三頭筋）<br>
+			火：背中＋腕（上腕二頭筋）<br>
+			水：休み<br>
+			木：肩＋腕（上腕三頭筋）<br>
+			金：脚＋腕（上腕二頭筋）<br>
+			土：胸＋腕（上腕三頭筋）<br>
+			日：休み
+	</div>
+	<div class="col-4 mt-5 align-self-center text-left">
+		トレーニングメニュー例（おすすめ！）<br>
+			月：胸＋ 肩(フロント）+ 腕（上腕三頭筋）<br>
+			火：背中＋ 肩(リア）+ 腕（上腕二頭筋）<br>
+			水：脚＋ 肩(サイド）<br>
+			木：休み<br>
+			金：胸＋ 肩(フロント）+ 腕（上腕三頭筋）<br>
+			土：背中＋ 肩(リア）+ 腕（上腕二頭筋）<br>
+			日：脚＋ 肩(サイド）<br>
+	</div>
+	<div class="col-4 mt-5 align-self-center text-left">
+		トレーニングメニュー例（肩重視）<br>
+			月：胸+腹筋<br>
+			火：肩＋腕（上腕三頭筋）<br>
+			水：背中＋腕（上腕二頭筋)<br>
+			木：休み<br>
+			金：脚＋腕（上腕二頭筋）<br>
+			土：肩＋腕（上腕三頭筋）<br>
+			日：休み
 	</div>
 </div>

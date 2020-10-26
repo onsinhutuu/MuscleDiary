@@ -1,22 +1,27 @@
 <% muscle.muscle_comments.each do |muscle_comment| %>
-  <div class="comment-body">
-    <div class="comment-avatar">
-      <div class="avatar">
-       <%= attachment_image_tag muscle.user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
-      </div>
-    </div>
-    <div class="comment-text">
-      <div class="comment-author clearfix">
-       <%= link_to "#{ muscle_comment.user.name }",user_path(muscle_comment.user.id) %>
-        <span class="comment-meta">
-        <span class="comment-date"><%= muscle_comment.created_at.strftime('%Y/%m/%d') %></span>
-        </span>
-      </div>
-      <div class="comment-entry"><%= muscle_comment.comment %>
-      </div>
-      <% if @muscle.user == current_user %>
-      <%= link_to "コメントを消す", muscle_muscle_comment_path(muscle_comment.muscle, muscle_comment), method: :delete, remote: true %>
-      <% end %>
+<div class="row">
+  <div class="col-md-6 mt-5 text-center">
+    <div class="row justify-content-center mt-5">
+        <div class="col-4 mt-3 text-center">
+          <%= attachment_image_tag muscle.user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
+        </div>
+        <div class="col-4 mt-3 text-center">
+          <%= link_to "#{ muscle_comment.user.name }",user_path(muscle_comment.user.id) %>
+        </div>
+        <div class="col-4 mt-3 text-center">
+         <span class="comment-date"><%= l muscle_comment.created_at, format: :middle %></span>
+        </div>
     </div>
   </div>
+</div>
+<div class="row ml-3">
+  <div class="co-l0 mt-5">
+    <%= muscle_comment.comment %>
+  </div>
+  <div class="col-2 mt-5">
+    <% if muscle_comment.belongs_to_current_user?(current_user) %>
+    <i class="fas fa-trash"></i><%= link_to "削除", muscle_muscle_comment_path(muscle_comment.muscle, muscle_comment), method: :delete, remote: true %>
+    <% end %>
+  </div>
+</div>
 <% end %>

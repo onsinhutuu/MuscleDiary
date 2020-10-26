@@ -27,6 +27,14 @@ class User < ApplicationRecord
     passive_relationships.find_by(following_id: user.id).present?
   end
 
+  def belongs_to_current_user?(current_user)
+    self == current_user
+  end
+
+  def serach_model?(user)
+    self == [model: "muscle"]
+  end
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com', name: 'ゲスト') do |user|
     user.password = SecureRandom.urlsafe_base64

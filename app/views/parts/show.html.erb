@@ -1,17 +1,15 @@
-<div class="container fluid">
-	<div class="row justify-content-center">
-		<h1><%= @big.name %></h1>
-	</div>
-	<div class="row justify-content-center">
-		<%= link_to 'TODAY WORKOUTへ戻る', new_part_path %>
-	</div>
-	<div class="row justify-content-center">
-		<table class="table table-bordered">
-			<% @part.each do |part| %>
-				<tr>
-					<td><%= link_to "#{ part.name }",workout_muscle_path(part.id) %></td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
+<div class="row justify-content-center">
+	<h1><%= @big.name %></h1>
+</div>
+<div class="row justify-content-center">
+	<%= link_to 'TODAY WORKOUTへ戻る', new_part_path %>
+</div>
+<div class="row justify-content-center">
+	<table class="table table-bordered">
+		<% @part.each do |part| %>
+			<tr>
+				<td><%= link_to "#{ part.name }",workout_muscle_path(part.id) %></td>
+			</tr>
+		<% end %>
+	</table>
 </div>
