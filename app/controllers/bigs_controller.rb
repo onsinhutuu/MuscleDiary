@@ -10,9 +10,4 @@ class BigsController < ApplicationController
     redirect_to big_path(@part.big_id)
   end
 
-  private
-
-  def set_user
-    @user = current_user
-  end
 end

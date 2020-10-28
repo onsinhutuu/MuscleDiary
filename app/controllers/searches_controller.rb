@@ -1,9 +1,9 @@
 class SearchesController < ApplicationController
   before_action :authenticate_user!
   def search
-    @model = params['search']['model']
     @content = params['search']['content']
     @how = params['search']['how']
+    @model = params['search']['model']
     @datas = search_for(@how, @model, @content)
   end
 

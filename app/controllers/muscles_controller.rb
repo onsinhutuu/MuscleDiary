@@ -33,10 +33,10 @@ class MusclesController < ApplicationController
   end
 
   def update
-    @muscle = Muscle.find(params[:id])
-    if @muscle.update(muscle_params)
+    muscle = Muscle.find(params[:id])
+    if muscle.update(muscle_params)
       flash[:notice] = '投稿を編集しました'
-      redirect_to muscle_path(@muscle)
+      redirect_to muscle_path(muscle.id)
     else
       render :edit
     end
@@ -61,8 +61,8 @@ class MusclesController < ApplicationController
   end
 
   def destroy
-    @muscle = Muscle.find(params[:id])
-    @muscle.destroy
+    muscle = Muscle.find(params[:id])
+    muscle.destroy
     redirect_to muscles_path
   end
 

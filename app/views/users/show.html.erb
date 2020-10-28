@@ -21,13 +21,13 @@
 		</div>
 		<div class="row justify-content-center my-3 ">
 			<div class="user_<%= @user.id %>">
-   			<%= render 'users/follow', user: @user%>
+   			<%= render 'users/follow', user: @user %>
     	</div>
     </div>
   </div>
 </div>
 <% if @user.belongs_to_current_user?(current_user) %>
-<%= month_calendar events: @muscles do |date, muscles|%>
+<%= month_calendar events: @muscles do |date, muscles| %>
 	<%= date.day %>
   <% muscles.each do |muscle| %>
   	<%= link_to "#{ muscle.part.name }",muscle_path(muscle.id) %>

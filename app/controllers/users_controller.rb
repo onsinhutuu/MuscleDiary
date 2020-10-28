@@ -20,10 +20,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    if @user.update(user_params)
-      flash[:success] = '登録情報を更新しました'
-      redirect_to user_path(@user)
+    user = current_user
+    if user.update(user_params)
+      flash[:notice] = '登録情報を更新しました'
+      redirect_to user_path(user)
     else
       render 'edit'
     end
@@ -32,8 +32,8 @@ class UsersController < ApplicationController
   def unsubscribe; end
 
   def withdraw
-    @user = current_user
-    @user.update(is_deleted: true)
+    user = current_user
+    user.update(is_deleted: true)
     reset_session
     flash[:notice] = 'ありがとうございました'
     redirect_to root_path

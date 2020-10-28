@@ -20,9 +20,7 @@ class Admins::ContactsController < ApplicationController
   def destroy
     contact = Contact.find(params[:id])
     contact.destroy
-    @contacts = Contact.page(params[:page]).order(created_at: :desc).per(16)
-    @users = User.all
-    render :index
+    redirect_to admins_contacts_path
   end
 
   private
