@@ -21,21 +21,12 @@
 
 $(function(){
     load_effect();
-    $(window).scroll(function (){
-        scroll_effect();
-    });
 });
 
 //ふわっとロード
 function load_effect(){
     var tt = $(window).scrollTop();
     var hh = $(window).height();
-    $('.load-fade').each(function(){
-        var yy = $(this).offset().top;
-        if (tt > yy - hh){
-            $(this).addClass('done');
-        }
-    });
     $('.load-up').each(function(){
         var yy = $(this).offset().top;
         if (tt > yy - hh){
@@ -44,6 +35,7 @@ function load_effect(){
     });
 }
 
+//user/editの画像プレビュー機能
 $(function(){
     // inputのidから情報の取得
     $('#user_image').on('change', function (e) {
