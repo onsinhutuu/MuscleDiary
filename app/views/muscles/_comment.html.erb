@@ -3,7 +3,7 @@
   <div class="col-md-6 mt-5 text-center">
     <div class="row justify-content-center mt-5">
         <div class="col-4 mt-3 text-center">
-          <%= attachment_image_tag muscle.user, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
+          <%= attachment_image_tag muscle.user, :image, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
         </div>
         <div class="col-4 mt-3 text-center">
           <%= link_to "#{ muscle_comment.user.name }",user_path(muscle_comment.user.id) %>
