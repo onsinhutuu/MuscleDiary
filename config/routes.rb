@@ -22,7 +22,6 @@ Rails.application.routes.draw do
     resources :contacts, only: %i[index edit update destroy]
   end
   get 'users/search' => 'searches#search'
-  get '/muscle/hashtag/:name', to: 'muscles#hashtag'
   resources :contacts, only: %i[new create]
   resources :parts, only: %i[new create]
   resources :bigs, only: %i[show destroy]
@@ -33,6 +32,7 @@ Rails.application.routes.draw do
     get :following, on: :member
     get :workout, on: :member
   end
+  get '/muscle/hashtag/:name', to: 'muscles#hashtag'
 
   resources :users, only: %i[show update edit] do
     resource :relationships, only: %i[create destroy]

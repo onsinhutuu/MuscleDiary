@@ -316,7 +316,7 @@ i {
 }
 
 /*topページのjs*/
-.load-up{opacity: 0; transform: translateY(200px)/*スクロールアップする距離*/; transition: all 2s/*処理にかかる時間*/;}
+.load-up{opacity: 0; transform: translateY(200px); /*スクロールアップする距離*/transition: all 2s;/*処理にかかる時間*/}
 .load-up.done, .load-fade.done{opacity : 1; transform : translate(0, 0);}
 /*レスポンシブ 対応*/
 @media screen and (max-width:768px) {
@@ -332,7 +332,6 @@ i {
     width: 300px;
     height: 20px;
   }
-  
   .alert {
     width:100%;
   }

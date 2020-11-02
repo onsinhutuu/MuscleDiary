@@ -42,6 +42,7 @@ $(function(){
 // ここから既存の画像のurlの取得
     var reader = new FileReader();
     reader.onload = function (e) {
+    //reader実行処理
         $(".image").attr('src', e.target.result);
     }
 // ここまで
