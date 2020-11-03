@@ -13,7 +13,6 @@ RSpec.describe 'Usersコントローラのテスト', type: :request do
       end
     end
     context "ログインユーザーでない場合" do
-      # 302レスポンスが返ってきているか？
       it "302レスポンスが返ってくる" do
         get '/users/' + user.id.to_s
         is_expected.to have_http_status "302"
@@ -29,7 +28,6 @@ RSpec.describe 'Usersコントローラのテスト', type: :request do
       end
     end
     context "ログインユーザーでない場合" do
-      # 302レスポンスが返ってきているか？
       it "302レスポンスが返ってくる" do
         get '/users/' + user.id.to_s + '/follows'
         is_expected.to have_http_status "302"
@@ -45,7 +43,6 @@ RSpec.describe 'Usersコントローラのテスト', type: :request do
       end
     end
     context "ログインユーザーでない場合" do
-      # 302レスポンスが返ってきているか？
       it "302レスポンスが返ってくる" do
         get '/users/' + user.id.to_s + '/followers'
         is_expected.to have_http_status "302"
@@ -62,7 +59,6 @@ RSpec.describe 'Usersコントローラのテスト', type: :request do
       end
     end
     context "ログインユーザーでない場合" do
-      # 302レスポンスが返ってきているか？
       it "302レスポンスが返ってくる" do
         get '/users/' + user.id.to_s + '/edit'
         is_expected.to have_http_status "302"
@@ -72,17 +68,16 @@ RSpec.describe 'Usersコントローラのテスト', type: :request do
 
   describe 'PUT #update' do
     context 'ログインユーザーである場合' do
-      it '200レスポンスが返ってくる' do
+      it '更新できるか' do
+        user_params = FactoryBot.attributes_for(:user, name: "遠藤")
         sign_in user
-        pending 'この先はなぜかテストが失敗するのであとで直す'
-        put '/users/' + user.id.to_s
-        is_expected.to have_http_status "200"
+        patch '/users/' + user.id.to_s, params: { id: user.id, user: user_params }
+        expect(user.reload.name).to eq "遠藤"
       end
     end
     context "ログインユーザーでない場合" do
-      # 302レスポンスが返ってきているか？
       it "302レスポンスが返ってくる" do
-        put '/users/' + user.id.to_s
+        patch '/users/' + user.id.to_s
         is_expected.to have_http_status "302"
       end
     end

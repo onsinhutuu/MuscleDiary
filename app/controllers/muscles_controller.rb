@@ -24,9 +24,9 @@ class MusclesController < ApplicationController
 
   def edit
     @muscle = Muscle.find(params[:id])
-    @user = current_user
-    @part = @muscle.part
     if @muscle.user == current_user
+      @user = current_user
+      @part = @muscle.part
     else
       redirect_to muscles_path
     end
