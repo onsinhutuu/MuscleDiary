@@ -14,7 +14,7 @@
    	<tbody>
 	   	<tr>
 		   	<td>
-		    	<%= attachment_image_tag datas, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
+		    	<%= attachment_image_tag datas, :image, fallback: "no_image.jpg", size:'50x50', class: "img-circle pull-left profile-thumb" %>
 		    </td>
 	    	<td>
 	    		<%= link_to datas.name, user_path(datas.id) %>
