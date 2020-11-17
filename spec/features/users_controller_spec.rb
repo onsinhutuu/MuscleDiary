@@ -24,12 +24,37 @@ RSpec.describe 'Userscontrollerのテスト', type: :feature do
 	  	expect(page).to have_content 'ログアウトしました'
 	  end
 	end
-	describe 'PUT #update' do
+	describe '編集機能' do
 	  it "更新できるか" do
 	      sign_in user
 	      visit edit_user_path(user)
 	      click_on "編集内容を保存する"
 	      expect(current_path).to eq '/users/' + user.id.to_s
+	  end
+	end
+	describe '退会機能' do
+		before do
+			sign_in user
+		end
+		context '画面の遷移' do
+  	  it '編集画面から確認画面へ遷移できる' do
+  	  	visit edit_user_path(user)
+	  		click_on '退会する'
+	  		expect(current_path).to eq('/users/' + user.id.to_s + '/unsubscribe')
+	  	end
+	  	it '確認画面から退会' do
+	  		visit unsubscribe_user_path(user)
+				click_on '退会する'
+				expect {  user.update(is_deleted: true) }.to change{ user.is_deleted == true }
+				expect(current_path).to eq '/'
+				expect(page).to have_content 'ありがとうございました'
+			end
+			it '確認画面から退会しない' do
+				visit unsubscribe_user_path(user)
+				click_on '退会しない'
+				expect(current_path).to eq('/users/' + user.id.to_s)
+				expect(page).to have_content '編集'
+			end
 	  end
 	end
 end
