@@ -38,7 +38,8 @@ class MusclesController < ApplicationController
       flash[:notice] = '投稿を編集しました'
       redirect_to muscle_path(muscle.id)
     else
-      render :edit
+      redirect_to request.referer
+      flash[:notice] = '全て記入してから投稿して下さい'
     end
   end
 
