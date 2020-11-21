@@ -13,7 +13,7 @@ class MusclesController < ApplicationController
 
   def index
     @user = current_user
-    @muscles = Muscle.all.page(params[:page]).per(10)
+    @muscles = Muscle.all.includes([:user, :part]).page(params[:page]).per(10)
   end
 
   def following

@@ -88,6 +88,7 @@ gem 'simple_calendar', '~> 2.0'
 group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'bullet'
 end
 group :production do
   gem 'mysql2'

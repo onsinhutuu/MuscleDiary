@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
-    @muscles = current_user.muscles
+    @muscles = current_user.muscles.includes([:part])
   end
 
   def follows
