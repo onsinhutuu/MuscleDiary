@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Userscontrollerのテスト', type: :feature do
+RSpec.describe 'Musclescontrollerのテスト', type: :feature do
 	include Devise::Test::IntegrationHelpers
 	let(:user) { create(:user) }
 	let(:muscle) { create(:muscle, user_id: user.id) }
