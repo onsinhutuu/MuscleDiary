@@ -76,9 +76,11 @@ RSpec.describe 'Userモデルのテスト', type: :model do
     end
   end
   describe 'モデルのメソッド' do
-    let(:user) { create(:user) }
-    it "active_for_authentication?" do
-      expect(user.active_for_authentication?).to eq(true)
+    context 'インスタンスメソッド' do
+      let(:user) { create(:user) }
+      it "active_for_authentication?" do
+        expect(user.active_for_authentication?).to eq(true)
+      end
     end
   end
 end

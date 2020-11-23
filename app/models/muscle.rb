@@ -20,7 +20,11 @@ class Muscle < ApplicationRecord
   def self.match_with_worktag(content)
     where(work_tag:content)
   end
-
+  
+  scope :perfect_work_tag_match, ->(work_tag) { where(work_tag:work_tag) }
+  scope :backward_work_tag_match, ->(work_tag) { where('work_tag LIKE ?', "%#{work_tag}") }
+  scope :forward_work_tag_match, ->(work_tag) { where('work_tag LIKE ?', "#{work_tag}%") }
+  scope :partical_work_tag_match, ->(work_tag) { where('work_tag LIKE ?', "%#{work_tag}%") }
   after_create do
     # 1.controller側でcreateしたmuscleを取得
     muscle = Muscle.find_by(id: id)

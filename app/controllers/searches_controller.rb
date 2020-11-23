@@ -10,35 +10,19 @@ class SearchesController < ApplicationController
   private
 
   def match(model, content)
-    if model == 'user'
-      User.where(name: content)
-    elsif model == 'muscle'
-      Muscle.match_with_worktag(content)
-    end
+    PerfectMatchSearcher.new(model, content).execute
   end
 
   def forward(model, content)
-    if model == 'user'
-      User.where('name LIKE ?', "#{content}%")
-    elsif model == 'muscle'
-      Muscle.where('work_tag LIKE ?', "#{content}%")
-    end
+    ForwardMatchSearcher.new(model, content).execute
   end
 
   def backward(model, content)
-    if model == 'user'
-      User.where('name LIKE ?', "%#{content}")
-    elsif model == 'muscle'
-      Muscle.where('work_tag LIKE ?', "%#{content}")
-    end
+    BackwardMatchSearcher.new(model, content).execute
   end
 
   def partical(model, content)
-    if model == 'user'
-      User.where('name LIKE ?', "%#{content}%")
-    elsif model == 'muscle'
-      Muscle.where('work_tag LIKE ?', "%#{content}%")
-    end
+    ParticalMatchSearcher.new(model, content).execute
   end
 
   def search_for(how, model, content)

@@ -30,7 +30,12 @@ class User < ApplicationRecord
   def belongs_to_current_user?(current_user)
     self == current_user
   end
-
+  
+  # user.rbに実装する
+  scope :perfect_name_match, ->(name) { where(name: name) }
+  scope :forward_name_match, ->(name) { where('name LIKE ?', "#{name}%") }
+  scope :backward_name_match, ->(name) { where('name LIKE ?', "%#{name}") }
+  scope :partical_name_match, ->(name) { where('name LIKE ?', "%#{name}%") }
   def self.guest
     find_or_create_by!(email: 'guest@example.com', name: 'ゲスト') do |user|
     user.password = SecureRandom.urlsafe_base64
