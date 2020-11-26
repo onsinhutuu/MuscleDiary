@@ -16,10 +16,6 @@ class Muscle < ApplicationRecord
   def belongs_to_current_user?(current_user)
     user == current_user
   end
-
-  def self.match_with_worktag(content)
-    where(work_tag:content)
-  end
   
   scope :perfect_work_tag_match, ->(work_tag) { where(work_tag:work_tag) }
   scope :backward_work_tag_match, ->(work_tag) { where('work_tag LIKE ?', "%#{work_tag}") }

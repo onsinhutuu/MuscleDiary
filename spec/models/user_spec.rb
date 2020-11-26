@@ -1,6 +1,6 @@
 require 'rails_helper'
-
 RSpec.describe 'Userモデルのテスト', type: :model do
+  include Devise::Test::IntegrationHelpers
   describe 'バリデーションのテスト' do
     subject { user.valid? }
     let(:user) { create(:user) }
@@ -80,6 +80,10 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       let(:user) { create(:user) }
       it "active_for_authentication?" do
         expect(user.active_for_authentication?).to eq(true)
+      end
+      it "belongs_to_current_user?(current_user)" do
+        current_user = sign_in user
+        expect(user.belongs_to_current_user?(current_user)).to eq(false)
       end
     end
   end
