@@ -24,7 +24,6 @@
       </nav>
     </header>
     <div class="wrapper">
-    <div class="container-fluid">
     <%= render 'layouts/flashes' %>
     <div
     <% if content_for?(:body_attributes) %>
@@ -32,7 +31,6 @@
     <% end %>
     >
       <%= yield %>
-    </div>
     </div>
     <div class="push"></div>
     <footer>

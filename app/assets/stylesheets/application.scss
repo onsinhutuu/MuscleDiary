@@ -76,14 +76,14 @@ footer {
   font-size: 50px;
   position: absolute;
   z-index: 100;
-  top: 250px;
+  top: 150px;
 }
 .fa-arrow-alt-circle-right {
   font-size: 50px;
   position: absolute;
   z-index: 100;
   right: 10px;
-  top: 250px
+  top: 150px
 }
 /*nabvar*/
 .logo {
@@ -92,9 +92,11 @@ footer {
     width: 80px;
     height: 80px;
 }
+.navbar-nav {
+  margin-left: 500px;
+}
 .nav-item {
 	font-size: 20px;
-	margin-left: 10px;
 }
 .navbar-toggler{
   background-color: #000000;
@@ -191,7 +193,7 @@ input[type="email"] {
     border-radius: 25px;
     text-decoration: none;
     color: #FFF;
-    background-image: linear-gradient(45deg, #FF99FF 0%, #ff8b5f 100%);
+    background-image: linear-gradient(45deg, #000000 0%,#C0C0C0 100%);
     transition: .4s;
     font-size: 20px;
 }
