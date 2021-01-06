@@ -31,10 +31,6 @@ class User < ApplicationRecord
     self == current_user
   end
 
-  def belongs_to_guest_user?(guest_user)
-    self != User.guest
-  end
-  
   # user.rbに実装する
   scope :perfect_name_match, ->(name) { where(name: name) }
   scope :forward_name_match, ->(name) { where('name LIKE ?', "#{name}%") }
