@@ -6,6 +6,11 @@ class Admins::SessionsController < Devise::SessionsController
     admins_contacts_path
   end
 
+  def guest_admin 
+    user = Admin.guest
+    sign_in user
+    redirect_to admins_contacts_path, notice: 'ゲストとしてログインしました。'
+  end
   # GET /resource/sign_in
   # def new
   #   super

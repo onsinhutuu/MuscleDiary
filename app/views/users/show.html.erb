@@ -11,12 +11,14 @@
 		</div>
 		<div class="row border-bottom">
 			<% if @user.belongs_to_current_user?(current_user) %>
-				<div class="col-md-6 text-center mt-3">
-					<a class="icon"><%= link_to "編集する", edit_user_path(@user) %><i class="fas fa-user-edit"></i></a>
-				</div>
-				<div class="col-md-6 text-center mt-3">
-   				<a class="icon"><%= link_to "パスワード変更", edit_user_registration_path(@user) %><i class="fas fa-user-cog"></i></a>
-   			</div>
+				<% if @user != @guest_user %>
+					<div class="col-md-6 text-center mt-3">
+						<a class="icon"><%= link_to "編集する", edit_user_path(@user) %><i class="fas fa-user-edit"></i></a>
+					</div>
+					<div class="col-md-6 text-center mt-3">
+						<a class="icon"><%= link_to "パスワード変更", edit_user_registration_path(@user) %><i class="fas fa-user-cog"></i></a>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 		<div class="row justify-content-center my-3 ">

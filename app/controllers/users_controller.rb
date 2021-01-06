@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @muscles = current_user.muscles.includes([:part])
+    @guest_user = User.guest
   end
 
   def follows

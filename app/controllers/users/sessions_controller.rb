@@ -16,6 +16,7 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to muscles_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
+
   protected
 
   def reject_user

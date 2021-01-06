@@ -40,10 +40,10 @@
         <%= link_to 'LOG IN', new_user_session_path, :class => "d-none d-xl-block btn btn-light rounded-pill" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'ADMIN LOG IN', new_admin_session_path, :class => "d-none d-xl-block btn btn-light rounded-pill" %>
+        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, :class => "d-none d-xl-block btn btn-light rounded-pill"%>
       </li>
       <li class="nav-item">
-        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, :class => "d-none d-xl-block btn btn-light rounded-pill"%>
+        <%= link_to '管理者ログイン（閲覧用）', admins_guest_sign_in_path, method: :post, :class => "d-none d-xl-block btn btn-light rounded-pill"%>
       </li>
     <% end %>
   </ul><!-- /.navbar-nav -->
