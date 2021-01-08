@@ -30,7 +30,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def unsubscribe; end
+  def unsubscribe
+    @user = current_user
+    @guest_user = User.guest
+  end
 
   def withdraw
     user = current_user
